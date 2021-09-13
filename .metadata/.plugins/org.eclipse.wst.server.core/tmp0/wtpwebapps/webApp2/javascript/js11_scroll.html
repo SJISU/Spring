@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function scrollTest(){
+		//스크롤 바 이동하기
+		//절대 위치
+		//				x:좌우 y:상하
+		//window.scrollTo(100,  200);
+		//상대 위치
+		window.scrollBy(0, 20); //클릭할때마다 20px씩 아래로 내려감, 좌우는 움직이지않음
+		
+		//현재컨텐츠에서 스크롤바의 위치 구하기 
+		var top = window.scrollY;
+		var left = window.scrollX;
+		
+		document.getElementById("r").innerHTML= "top="+top+"<br/>left="+left;
+		
+	}
+</script>
+</head>
+<body>
+<img src="../img/flower3.jpg"/><button onclick="scrollTest()">클릭하세요</button><br/>
+<div id="r"></div>
+<img src="../img/flower2.jfif"/><br/>
+<img src="../img/pang.gif"/><br/>
+<img src="../img/snoopy.png"/><br/>
+</body>
+</html>

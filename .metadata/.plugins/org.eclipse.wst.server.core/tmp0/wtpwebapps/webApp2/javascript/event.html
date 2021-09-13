@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{
+		width:90%;
+	}
+</style>
+<script>
+	//checked상태일때 쿠키를 저장하는 함수
+	function setEventCookie(){
+		// 			 checked = true, unchecked=false
+		var result = document.getElementById("chk").checked;
+		if(result){ //체크상태 있을때 : true
+			//쿠키기록
+			//변수, 값, 소멸시점
+			//다음날까지 보관되도록
+			var now = new Date();
+			now.setDate(now.getDate()+1); //내일날짜로 변경
+			
+			//쿠키에 기록할 데이터
+			//              name=value;쿠기가 저장되는경로;쿠키가 언제 지워질지
+			var cookieData="event=test;path=/;expires="+now+";";
+			
+			//console.log(cookieData);			
+			
+			//쿠키라는변수에 값을  넣으면 됨
+			document.cookie = cookieData; //쿠키저장
+		}
+		self.close() // window.close();
+	}
+</script>
+</head>
+<!--             onresize: 창 사이즈가 변경될때 발생하는 이벤트 : 창을 조절하면 500,500사이즈로 고정됨-->
+<body onresize="self.resizeTo(500,500)"> <!--self: window -->
+<img src="../img/flower3.jpg"/><br/>
+<input type="checkbox" id="chk"/>하루동안 안보이기
+<input type="button" value="닫기" onclick="setEventCookie()"/>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	.c1{background-color:yellow; color:red;}
+	.c2{background-color:pink; color:blue;}
+</style>
+<script>
+	$(()=>{
+		//hover는 이벤트1개에 over,out 2개의 기능을 가진다.
+		var cnt = 1;
+		//			over , out
+		$('h1').hover(function(){ //제이슨방식아니고 함수의 매개변수가2가지 인것
+			//over
+			$(this).addClass('c1');
+			//     출력html       출력할값을 찾아주는 html  		
+			$(this).html($(this).html() +"("+ cnt++ +")");
+			
+			//cnt가 10에 도달하면 이벤트취소
+			if(cnt>10){
+				$('h1').off(); //대상은 this아니고 h1으로 설정해줘야 한다
+			}
+			
+		},function(){
+			//out
+			$(this).removeClass('c1');
+		
+		});
+		
+		//  이벤트가 한번 발생한다 -> 한번하고 끝
+		$('h2').one('click',function(){
+			console.log('one이벤트가 발생');
+			$(this).addClass('c2');
+		});
+		
+	});
+</script>
+</head>
+<body>
+<h1>hover event 처리 테스트...</h1>
+<h1>hover event 처리 테스트...</h1>
+<h1>hover event 처리 테스트...</h1>
+<h1>hover event 처리 테스트...</h1>
+<h1>hover event 처리 테스트...</h1>
+
+
+<h2>hover event 처리 테스트...</h2>
+<h2>hover event 처리 테스트...</h2>
+<h2>hover event 처리 테스트...</h2>
+<h2>hover event 처리 테스트...</h2>
+<h2>hover event 처리 테스트...</h2>
+</body>
+</html>

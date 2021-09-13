@@ -1,0 +1,10 @@
+package com.bitcamp.myapp.regitser;
+
+import org.springframework.stereotype.Controller;
+
+//현재 클래스 컨트롤러가 되기 위해서는 클래스명 이전에 @Controller어노테이션을 기술한다.
+//클래스 정의되기전 @어노테이션
+@Controller 
+public class RegisterController {
+
+}

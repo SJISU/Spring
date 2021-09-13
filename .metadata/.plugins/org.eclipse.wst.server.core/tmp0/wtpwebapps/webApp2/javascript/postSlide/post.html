@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	
+	#postview{
+		width:879px;
+		height:114px;
+		margin:0 auto;
+		background-color:pink;		
+	}
+	#postview>*{
+		height:114px;
+		float:left;
+		
+	}
+	#postview>div{
+		width:820px;
+		overflow:hidden;
+		
+	}
+	#imglist{
+		width:1640px;
+		position : relative;
+		
+	}
+</style>
+<script>
+	//포스트 이미지 셋팅
+	function setPostImage(){
+		var tag="";
+		for(var i=1; i<=20; i++){			
+			tag+="<img src='movie"
+			if(i<10){
+				tag+="0"+i+".png'/>";
+			}else{
+				tag+=+i+".png'/>";
+				
+			}
+		}
+		console.log(tag);
+		document.getElementById("imglist").innerHTML = tag;
+		
+	} 
+	
+	var timer; //변수에 인터벌 담으려고
+	
+	var left=0;//현재위치에서
+	var stepX=-5;
+	function postMove(){
+		//div.left -> 0, -5, -10...
+		left = left + stepX; // - 이면 왼쪽으로 이동
+		document.getElementById("imglist").style.left = left+"px";		
+		
+		if(left<=-820){
+			stepX=5; // + 이면 오른쪽으로 이동
+		}
+		if(left>=0){
+			stepX=-5;
+		}
+	}
+	
+	//포스트이미지들에 이벤트를 걸어서....
+	//마우스가 들어오면 인터벌이 멈추게
+	//인터벌을 변수에 담아서...
+	
+</script>
+</head>
+<body onload="setPostImage(); timer = setInterval('postMove()',200)">
+<div id="postview">
+	<input type="button" value="◁" onclick="stepX=-5;"/>
+	<div onmouseover="clearInterval(timer)" onmouseout="timer=setInterval('postMove()',200)">
+		<div id="imglist">			
+		</div>
+	</div>
+	<input type="button" value="▷" onclick="stepX=5;"/>
+</div>
+</body>
+</html>

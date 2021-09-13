@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#d1{
+	background:white;
+	width:900px;
+	height:100%;
+	margin:0 auto;	
+}
+#d2{
+	background:white;
+	width:600px;
+	height:100%;
+	margin:0 auto ;	
+	
+	text-align: center;
+}
+#d2>div{
+	margin-top:10px;
+}
+#i1{
+	margin-top:90px;
+}
+.c1{
+	width:500px;
+	height:50px;
+	border:1px solid #ddd;
+	
+	margin:0 auto ;	/*가운데정렬*/
+	/*위아래 여백 필요*/
+}
+#login{
+	background:rgb(71,135,242);
+	color:white;
+	font-size:25px;
+	text-align: center;	
+}
+
+#logintxt{
+	width:500px;
+	text-align:left;
+	
+	
+}
+#d3{
+	background:white;
+	width:600px;
+	height:60px;
+}
+#d4{
+	background:white;
+	width:900px;
+	height:100px;
+}
+</style>
+</head>
+<body style="background-color:#ddd; margin:0;">
+<div id="d1">
+	<div id="d2">
+		<div><img src="daum.png" id="i1"/></div>
+		<div class="c1"><input type="text" name="userid" id="userid" placeholder="아이디" width="100%"  height="50px"/></div>
+		<div class="c1"><input type="password" name="userpwd" id="userpwd" placeholder="비밀번호" width="100%"/></div>	
+		<div id="login" class="c1">로그인</div>	
+		<div id="logintxt" style="font-size:1.2em;" ><input type="checkbox" name="intro" value="loginstate"/>   로그인상태유지</div>
+		<div ><label>아이디찾기 </label> | <label> 비밀번호찾기</label></div>
+		<div id="d3"></div>
+		<div><img src="daum2.png" id="i2"/></div>
+		
+	</div>
+		<hr/>
+		<div style="text-align: center; color:gray;"><label >Kakao Corp. </label> | <label> 고객센터</label></div>
+		<div id="d4"></div>
+</div>
+</body>
+</html>

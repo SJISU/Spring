@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#container{
+		width:1000px; margin: 0 auto;
+	}
+	#container>img{
+		width:100%;
+	}
+	/* 공지사항*/
+	#notice{
+		position : absolute;
+		width:400px;
+		height:400px;
+		border:1px solid gray;
+		left:300px; top:300px;
+		background-color:#fff;
+		overflow:hidden;
+	}
+	#title{ 
+		height:50px;float:left;width:95%;	
+	}
+	#divClose{
+		height:50px;float:left;width:5%;
+	}
+</style>
+<script>
+	//noticeDiv위치 지정
+	function setDivXY(){
+		//div의 style에서 지정한 left, top값을 인식하지 못한다.
+		document.getElementById("notice").style.left="300px";
+		document.getElementById("notice").style.top="300px";
+	}
+	
+	function noticeDivClose(){//x버튼에 마우스 갖다되면 id=notifce div안보이게
+		document.getElementById("notice").style.display="none"; 
+	}
+	
+	//title Div를 클릭하면 --> 좌표구하기...
+	var eventX, eventY, divLeft, divTop, moveX,moveY;
+	var flag = false;
+	
+	function divMoveStart(){ //마우스 클릭하면
+		//div의 left,top 좌표
+		var notice = document.getElementById("notice").style;
+		divLeft = parseInt(notice.left); //300px --> 300 :단위없애고 정수로 바꿔야 한다...
+		divTop = parseInt(notice.top);
+		
+		//마우스 클릭한 위치의 x,y 좌표
+		eventX = event.clientX;
+		eventY = event.clientY;
+	
+		//클릭한 상태에서 마우스를 이동하면 
+		//이동한 위치의 좌표를구해서 이동하기전에 구했던 좌표와 계산해서 div를 옮기는 메소드르 호출하게끔
+		//마우스를 이동하면 divDrag()함수를 호출하는 이벤트를 등록한다.
+		document.onmousemove = divDrag; //바디에 이벤트등록 , 이 함수에 들어오면 그제서야 이벤트 등록하는것
+		
+		flag = true;
+		console.log(divLeft,divTop,eventX,eventY);
+	}
+	function divDrag(){ //flag가 틀루일때만 실행
+		
+		if(flag){
+			//이동한 곳의 마우스위치 x,y 좌표구하기
+			moveX = event.clientX;
+			moveY = event.clientY;
+			
+			//마우스를 클릭후 이동한 픽셀을 구하기
+			var x = moveX-eventX; //x가 이동한거리
+			var y = moveY-eventY; 
+			
+			//-> 이동한만큼을 현재 x,y좌표에 더해줘야한다...
+			var left = divLeft + x; 
+			var top = divTop + y;
+			
+			var notice = document.getElementById("notice");
+			notice.style.left = left +"px";
+			notice.style.top = top +"px";
+		}
+	}
+	function setFlag(){
+		flag = false;
+	}
+	
+	document.onmouseup = setFlag;// 눌럿다가 손을 놓으면
+	
+</script>
+</head>
+<body onload="setDivXY()">
+<div id="container">
+	<img src="../img/flower3.jpg"/>
+</div>
+
+<!-- Div로 공지사항 만들기 -->
+<div id="notice">
+	<div>
+		<div id="title" onmousedown="divMoveStart()">제목	</div>
+		<div id="divClose" onclick="noticeDivClose()">X</div>
+	</div>
+	<div><img src="../img/flower2.jfif" width="100%"/></div>
+</div>
+</body>
+</html>

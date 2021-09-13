@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<style>
+	body,ul,li{ margin:0; padding:0;}
+	/* float : left, right*/
+	li{float:left;
+		/* list-style-position:inside; */
+		list-style-type:none;
+		width: 25%; /*4개가 한줄에 보여야함*/
+		/* border: 1px solid red; /* border가 1px씩 차지하고있어서 4개가 다 안보임 */
+		text-align: center; /* 내용을 정렬(좌우정렬)*/
+		height: 50px;
+		line-height:50px;
+	}
+	
+</style>
+<style>
+	h1{color : blue;} /* 덮어쓰기가 되서 빨간색이아니라 파란색으로 나옴 */
+</style>
+</head>
+<body>
+<img src="../img/campus.jpg"/> 
+<h1>외부파일을 이용한 스타일 적용</h1>
+<ul>	
+	<li><a href="/webApp2.index.html">홈</a></li>
+	<li><a href="tag02_img.html">이미지</a></li>
+	<li><a href="https://www.nate.com">네이트</a></li>
+	<li><a href="tag08_video.html">동영상</a></li>
+</ul>
+</body>
+</html>

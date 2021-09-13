@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<style>
+	.jumbotron>h1{text-align:center;}
+</style>
+</head>
+<body>
+<div class="container">
+	<!-- 
+		.jumbotron : 회색배경에 패딩,내용이 위아래 가운데 있는 둥근 사각형
+	 -->
+	<div class="jumbotron">
+		<h1>회색배경에 padding이 있는 둥근사각형</h1>
+	</div>
+	<p class="jumbotron">
+	수도권에는 의왕·군포·안산, 화성진안 신도시 규모 2곳, 인천구월2, 화성봉담3 중규모 택지 2곳, 남양주진건, 양주장흥, 구리교문 소규모 택지 3곳 등 7곳에 총 12만가구를 공급한다. 지방권에는 대전죽동2, 세종조치원, 세종연기 등 소규모 택지 3곳에 총 2만가구를 짓는다.
+	수도권에는 의왕·군포·안산, 화성진안 신도시 규모 2곳, 인천구월2, 화성봉담3 중규모 택지 2곳, 남양주진건, 양주장흥, 구리교문 소규모 택지 3곳 등 7곳에 총 12만가구를 공급한다. 지방권에는 대전죽동2, 세종조치원, 세종연기 등 소규모 택지 3곳에 총 2만가구를 짓는다.
+	수도권에는 의왕·군포·안산, 화성진안 신도시 규모 2곳, 인천구월2, 화성봉담3 중규모 택지 2곳, 남양주진건, 양주장흥, 구리교문 소규모 택지 3곳 등 7곳에 총 12만가구를 공급한다. 지방권에는 대전죽동2, 세종조치원, 세종연기 등 소규모 택지 3곳에 총 2만가구를 짓는다.
+	</p>	
+	<!-- 
+		.table : 표의 위아래 줄표시. padding,칸을 배분정렬
+		.table table-hover : tbody에 마우스 오버,아웃시 배경색 변경 
+		.table table-stripted : 줄단위 배경색 
+		.table table-dark : 표의 배경을 어두운색으로 설정
+	
+	 -->
+	<table class="table table-hover table-dark" >
+		<thead>
+		<tr>
+			<td>번호</td>
+			<td>이름</td>
+			<td>주소</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>100</td>
+			<td>홍길동</td>
+			<td>서울시 마포구</td>
+		</tr>
+		<tr>
+			<td>200</td>
+			<td>홍길동</td>
+			<td>서울시 마포구2</td>
+		</tr>
+		<tr>
+			<td>300</td>
+			<td>홍길동</td>
+			<td>서울시 마포구3</td>
+		</tr>
+		<tr>
+			<td>400</td>
+			<td>홍길동</td>
+			<td>서울시 마포구4</td>
+		</tr>
+		<tr>
+			<td>500</td>
+			<td>홍길동</td>
+			<td>서울시 마포구5</td>
+		</tr>
+		<tr>
+			<td>600</td>
+			<td>홍길동</td>
+			<td>서울시 마포구6</td>
+		</tr>
+		</tbody>
+		<tfoot>
+		<tr>	
+			<td colspan="3">문의사항은 02-777-8888로 연락바랍니다</td>
+		</tr>
+		</tfoot>
+	</table>
+	<hr/>
+	<!-- 
+		색상명
+		*-primary : blue
+		*-success : green
+		*-danger : red
+		*-info : blue
+		*-warning : yellow
+		*-active : gray
+		*-secondary : gray
+	 -->
+	<table class="table">
+		<thead>
+		<tr>
+			<td>번호</td>
+			<td>이름</td>
+			<td>주소</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr class="table-primary">
+			<td>100</td>
+			<td>홍길동</td>
+			<td>서울시 마포구</td>
+		</tr>
+		<tr class="table-success">
+			<td>200</td>
+			<td>홍길동</td>
+			<td>서울시 마포구2</td>
+		</tr>
+		<tr class="table-danger">
+			<td>300</td>
+			<td>홍길동</td>
+			<td>서울시 마포구3</td>
+		</tr>
+		<tr class="table-info">
+			<td>400</td>
+			<td>홍길동</td>
+			<td>서울시 마포구4</td>
+		</tr>
+		<tr class="table-warning">
+			<td>500</td>
+			<td>홍길동</td>
+			<td>서울시 마포구5</td>
+		</tr>
+		<tr class="table-active">
+			<td>600</td>
+			<td>홍길동</td>
+			<td>서울시 마포구6</td>
+		</tr>
+		</tbody>
+		<tfoot>
+		<tr>	
+			<td colspan="3">문의사항은 02-777-8888로 연락바랍니다</td>
+		</tr>
+		</tfoot>
+	</table>
+</div>
+</body>
+</html>

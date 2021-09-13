@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	img{width:100px; height:100px;}
+	ul,li{margin:5px; padding:0px; border:3px solid gray; float:left; list-style-type:none;}
+</style>
+<script>
+	$(()=>{
+		// before() : 선택자 이전에 객체 추가
+		$('#img').before('<li><img src="../img/j1.png"/></li>');
+		
+		// after() : 선택자 다음에 객체 추가
+		$('#img').after('<li><img src="../img/j2.png"/></li>');
+		
+		//insertBefore() : 선택자 이전에 객체 추가 $('추가할내용').insertBefore('선택자'); ->html태그안에있어야한다
+		$('<li><img src="../img/j5.png"/></li>').insertBefore("#img");
+		
+		//insertAfter() : 선택자 다음에 객체 추가
+		$('<li id="copy"><img src="../img/snoopy.png" /></li>').insertAfter("#img");
+		
+		//append()  : 선택자내부의 끝에 추가
+		//appendTo(): 선택자내부의 끝에 추가
+			
+		//prepend() : 선택자의 내부내용중에 제일 앞에 추가
+		$('ul').prepend("<li>prepend</li>"); //f12로보면 li가 5개 있다
+		
+		//prependTo() : 
+		$("<li><img src='../img/pang.gif'/></li>").prependTo('ul');	 //ul태그의 제일 앞부분에추가
+		
+		// clone() : 선택자와 후손을 전체로 복제한다..,한번만 사용할수 있다
+		var copyLi = $('#copy').clone();
+		// 아이디의 값을 변경
+		copyLi.attr('id','copy2');
+		$('ul').append(copyLi);
+		
+		// empty() : 선택자의 내용을 지운다
+		$('#copy').empty();
+		
+		//remove() : 선택자를 지운다
+		$('li:first').remove();
+		
+		//replaceAll() : 선택자를 다른객체로 치환하다, 
+		$('<h3>ReplaceAll</h3>').replaceAll('#copy2');
+		//replaceWith(): 
+		$('#img').replaceWith('<h3>ReplaceWith</h3>');
+		
+	});
+</script>
+</head>
+<body>
+<ul>
+	<li id="img"><img src="../img/j3.png"/></li>
+</ul>
+</body>
+</html>

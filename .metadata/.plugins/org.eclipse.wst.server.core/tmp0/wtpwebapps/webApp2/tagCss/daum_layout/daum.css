@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/*초기화*/
+ul,li{
+	margin:0; 
+	padding:0px; 
+	list-style-type:none;
+}
+#main>*{
+	float:left;
+}
+#main{
+	width:606px;
+	border :1px solid #ddd;
+	padding :10px; /*안쪽여백*/		
+	overflow:auto;
+	font-size:0.85em;
+}
+#main>ul:first-of-type{
+	width:400px;	
+}
+#main>ul:first-of-type>li{
+	height:152px; 
+	
+	
+}
+#main>ul>li{
+	width:178px;
+	margin:10px;
+	border : 1px solid #ddd;
+	float:left;
+	line-height:24px; /*줄간격*/
+}
+#main>ul:first-of-type>li>p:first-of-type{
+	font-weight:bold;
+}
+.cyan{
+	color:rgb(46,194,215);
+	font-size:1.2em;
+}
+.answer{
+	font-weight:700; /* bold대신 숫자 가능100,200,300,,,,700*/
+	font-size:1.2em;
+}
+
+/*토픽*/
+#main>div{
+	width:178px;
+	border: 1px solid #ddd;
+	margin :10px 9px; /*차례대로 위 오른쪽*/	
+}
+#main>ul>li>img{
+	width:178px;	
+}

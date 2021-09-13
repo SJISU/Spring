@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태,컨텐츠 선택자</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(()=>{
+		
+		//상태선택자
+		// : 속성
+		
+		//속성값이 text선택하라.
+		$(":text").css('background-color','pink');
+		
+		$(':checked').prop('checked',false); //체크되어있는 속성의 checked속성의 속성값을 false로 설정
+		
+		$(':selected').prop('selected',true); //선택되어있는 속성의 selected속성의 속성값을 false로 설정하여 맨처음것이 선택되게설정
+		
+		//컨텐츠 선태자
+		
+		// : contains() : 특정문자를 포함한 경우 선택한다.
+		$('p:contains("22일")').css('background-color','pink'); //3개의p태그중에 ''을 포함하고 있는 p태그 선택
+		
+		// : has() : 특정태그가 포함된 경우 선택
+		$('p:has("b")').css('color','blue');
+		
+		// : not() : 특정선택자를 제외한 나머지를 선택 
+		$('p:not(":first")').css('border','2px solid red');
+		
+		//  .closest() : 조상선택자
+		$('i').closest('body').css('border', "2px dotted orange");
+		
+		// .filter() : .c1선택	 -> p.cl 도 사용가능(필터와같은의미)
+		$('p').filter('.c1').css('background-color','#000').css('color','yellow');
+		
+		// .contents() : 선택자가 다른태그를 포함한 경우 '그 다른태그'를 선태한다.
+		$('p').contents().css('color','red').css('font-size','2em'); //p태그중에 다른태그를 포함하고 있는것 -> <b></b>,<i></i>
+		
+		//selectedIndex : select 태그의 목록에서 선텍된 목록의 index를 구한다.
+		$('#username').val( $('#site').prop('selectedIndex') ); //이름칸에 2가 찍혀져 있음
+	});
+</script>
+</head>
+<body>
+<div>
+	<p>
+		22일 <b>볼보자동차코리아</b>에 따르면 산업통상자원부로부터 OTA서비스에 대한 특례 승인을 획득했다. 
+		OTA는 자동차 소프트웨어를 유선이 아닌 무선으로 업데이트 할 수 있는 기술로 고객이 서비스센터를 방문하지 않고도 차를 최신의 상태로 유지할 수 있게 된다.	
+	</p>
+	<p class="c1">
+		제조사가 차량에 탑재된 유무선 통신제어기와 연결된 OTA 클라우드에 소프트웨어를 저장하면, 
+		소유주가 인포테인먼트 스크린이나 휴대전화 앱(App)을 통해 이를 승인해 업데이트를 진행하는 방식이다.
+	</p>
+	<p class="c2">
+		22일 <i>볼보자동차코리아</i>에 따르면 산업통상자원부로부터 OTA서비스에 대한 특례 승인을 획득했다. 
+		OTA는 자동차 소프트웨어를 유선이 아닌 무선으로 업데이트 할 수 있는 기술로 고객이 서비스센터를 방문하지 않고도 차를 최신의 상태로 유지할 수 있게 된다.	
+	</p>
+</div>
+<div>
+	<form>
+		<label>이름</label>
+		<input type="text" name="username" id="username" value=""/><br/>
+		
+		<label>연락처</label>
+		<input type="text" name="tel" id="tel"/><br/>
+		
+		<label>사용자 동의 여부</label>
+		<input type="radio" name="accept" value="yes" /> 동의
+		<input type="radio" name="accept" value="no" checked/>비동의<br/>
+		
+		<label>자주가는 사이트</label>
+		<select name="site" id="site">
+			<option value="not">직접입력</option>
+			<option value="daum">daum.net</option>
+			<option value="nate" selected>nate.com</option>
+			<option value="naver">naver.com</option>
+			<option value="google">google.com</option>
+		</select>
+		
+		
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function mathTest(){
+
+		//수학함수
+		var n = 123.568;
+		
+		document.write("pi->"+Math.PI);
+		document.write("<br/>pow->"+Math.pow(3,4)); //3의4승
+		
+		document.write("<br/>round->"+Math.round(n)); //반올림
+		document.write("<br/>sqrt->"+Math.sqrt(10)); //루트구하기
+		
+		document.write("<br/>abs->"+Math.abs(-88)); //절대치구하기
+		document.write("<br/>ceil->"+Math.ceil(n));//올림
+		document.write("<br/>floor->"+Math.floor(n));//버림
+		
+		document.write("<br/>max->"+Math.max(85,4,56,87,4,64,859,54));
+		document.write("<br/>min->"+Math.min(85,4,56,87,4,64,859,54));
+		
+		document.write("<br/>random->"+Math.random());// 0~1사이의 값 : 난수
+		
+	}//함수생성
+	
+	//1.함수호출-실행
+	//mathTest();
+	
+</script>
+</head>
+<!--2.onload 로 함수호출,onload로 함수호출하면 이미지가 안보임-->
+<!-- 모든프로그램이 실행이되고나면 onload가 실행됨 , 그전에 실행된것을 초기화하고 새로운document에실행됨,덮어쓰기-->
+<body onload="mathTest()"> 
+<img src="../img/flower3.jpg"/>
+
+
+</body>
+</html>

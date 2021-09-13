@@ -1,0 +1,5 @@
+package com.bitcamp.myapp.regitser;
+
+public class RegisterController {
+
+}

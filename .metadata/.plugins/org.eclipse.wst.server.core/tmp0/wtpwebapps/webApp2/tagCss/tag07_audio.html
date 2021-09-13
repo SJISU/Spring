@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>audio 태그</h1>
+<pre>
+	src : 재생파일명
+	controls : 컨트롤러 표시 //오디오파일 을 플레이 하기위해서는 컨트롤러 필요
+	loop : 재생 횟수
+	preload : 재생파일이 전송완료되면 재생한다.	
+	//화면에서 재생되고 잇는 mp3의 파일은 어디에있는가? -> 사용자의 컴퓨터가 아닌 서버에 파일이 있다.
+	//->용량이 큰 경우에는 넘어오지않음
+	
+</pre>
+
+<audio src="../sound_movie/Kalimba.mp3" controls></audio>
+
+<audio controls>
+	<source src="../sound_movie/Kalimba.mp3" type="audio/mp3"/>
+	<source src="../sound_movie/Kalimba.ogg" type="audio/ogg"/>
+</audio>
+
+
+
+</body>
+</html>

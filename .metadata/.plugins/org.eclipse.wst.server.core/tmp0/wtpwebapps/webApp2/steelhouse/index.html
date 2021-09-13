@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스틸하우스</title>
+<style>
+	ul,li{ /*초기화*/
+		margin:0;
+		padding:0;
+		list-style-type:none;
+	}
+	nav a:link, a:visited, a:active{
+		font-size:1.3em;
+		text-decoration:none;
+		color:#fff;
+	}
+	nav a:hover{
+		font-size:1.3em;
+		text-decoration:none;
+		color:yellow;
+	}
+	
+	body{background-color:rgb(146,204,101);}
+	
+	.container{
+		width:1050px;
+		background-color:#fff;
+		margin:0px auto;
+	}
+	header{		
+		padding-left:165px;
+		height:334px;  /*높이를 지정하여 위아래 여백 없애기*/
+	}
+	/*메인메뉴*/
+	nav{
+		overflow:auto; /*정렬하고 나서도 공간을 차지하기 위해 설정*/
+	}
+	nav>*,nav li,section>div{
+		 float:left;
+	}
+	nav>ul{
+		background-color:rgb(99,186,36);
+	}
+	nav li{
+		height:72px;
+		line-height:72px; /* li가 가운데로 옴*/
+		padding:0 25px;
+	}
+	.sub_header{
+		height:105px;
+	}
+	
+	/* news, gallery*/
+	section{
+		padding-left:165px;	
+		overflow:auto; /*정렬을 해도 높이가 자리를 뺏기지않고 공간을 차지 */		
+	}
+	section>div:first-of-type{
+		margin-right:85px;
+	}
+	
+	section>div:first-of-type li{
+		border: 3px solid #ccc;
+		padding:5px;
+		margin : 10px 0;
+	}
+	section a:link, section a:hover, section a:visited{
+		color:gray;
+		text-decoration:none;			
+	}
+	/*gallery*/
+	section>div:last-of-type{ /*이미지4개사이즈가 width*/
+		width:367px;
+		font-size:0.9em;
+	}
+	section>div:last-of-type li{
+		float:left;
+		height:100px;
+	}
+	section>div:last-of-type>ul img{ /*이미지 크기 줄이기*/
+		width:87.5px; 
+		margin:2px;
+	}
+	footer{
+		padding-left:165px;
+	}
+	
+</style>
+</head>
+<body>
+<div class="container">
+	<header>
+		<img src="css_gaon_02.jpg"/><img src="css_gaon_03.jpg"/><img src="css_gaon_04.jpg"/><img src="css_gaon_05.jpg"/><img src="css_gaon_06.jpg"/>
+	</header>
+	<nav> <!-- 메뉴태그에 nav 사용, 메뉴에 링크 걸어줘야 한다 -->
+		<img src="css_gaon_08.jpg"/>
+		<ul>
+			<li><a href="#">COMPANY</a></li>
+			<li><a href="#">STEELHOUSE</a></li>
+			<li><a href="#">ARCHITECTURE</a></li>
+			<li><a href="#">INTERIOR</a></li>
+			<li><a href="#">COMMUNITY</a></li>
+		</ul>
+	</nav>
+	<header class="sub_header">
+		<img src="css_gaon_15.jpg"/><img src="css_gaon_16.jpg"/><img src="css_gaon_17.jpg"/><img src="css_gaon_18.jpg"/><img src="css_gaon_19.jpg"/>
+	</header>
+	
+	<section>		
+		<div><img src="css_gaon_22.jpg"/>
+			<ul>
+				<li>01. <a href="#">자주하시는 질문</a></li>
+				<li>02. <a href="#">질문과 답변</a></li>
+				<li>03. <a href="#">채용안내</a></li>
+			</ul>
+		</div>		
+		<div><img src="css_gaon_24.jpg"/>
+			<ul>
+				<li><a href="#"><img src="g1.png"/><br/>멋진인테리어</a></li>
+				<li><a href="#"><img src="g2.png"/><br/>이쁜실내</a></li>
+				<li><a href="#"><img src="g3.png"/><br/>아파트단지</a></li>
+				<li><a href="#"><img src="g1.png"/><br/>회의실내부</a></li>
+				<li><a href="#"><img src="g1.png"/><br/>멋진인테리어</a></li>
+				<li><a href="#"><img src="g2.png"/><br/>이쁜실내</a></li>
+				<li><a href="#"><img src="g3.png"/><br/>아파트단지</a></li>
+				<li><a href="#"><img src="g1.png"/><br/>회의실내부</a></li>
+			</ul>
+		</div>
+	</section>
+	<footer>
+		<img src="css_gaon_31.jpg"/>
+	</footer>
+</div>
+</body>
+</html>

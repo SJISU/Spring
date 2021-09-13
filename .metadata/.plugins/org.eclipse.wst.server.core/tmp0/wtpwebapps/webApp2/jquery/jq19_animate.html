@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	#i1, #i2, #i3{
+		width:100px;height:100px;border:1px solid red;position:absolute; /*relative:자기자리유지-> absolute*/
+	}
+	#i1{background-color:orange;}
+</style>
+<script>
+	$(function(){
+		// animate() : 객체를 이동한다.
+		//							 'slow','fast','normal'
+		// 객체.animate({JSon데이터 옵션},밀리초,콜백함수);
+		
+		
+		//	    marginLeft, marginTop
+		$('#i1').animate({marginLeft:"1000px",marginTop:"800px",opacity:0.3},3000)
+				.animate({marginLeft:'1500px',marginTop:'10px',opacity:1},3000); //왼쪽으로 1000,위로800이동한후헤 다시 왼쪽으로 1500 위로 10 떨어지게이동
+	
+		$('#i2').animate({marginLeft:"1000px"},5000);
+		
+		//delay()함수 : 출발지연
+		$('#i3').delay(3000).animate({marginLeft:"1200px",marginTop:"500px"},5000);
+		
+		$("#i1,#i2,#i3").mouseover(function(){
+			//stop()함수
+			$(this).stop(); //amimate중단
+		});
+	
+	});
+</script>
+</head>
+<body>
+<div id="i1">ANIMATE</div>
+<img src="../img/flower3.jpg" id="i2"/><br/>
+<img src="../img/flower1.jpg" id="i3"/>
+</body>
+</html>

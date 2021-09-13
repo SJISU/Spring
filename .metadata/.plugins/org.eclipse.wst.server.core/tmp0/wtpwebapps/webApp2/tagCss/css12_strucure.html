@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/* 
+	구조선택자
+		nth-child(n) 
+		특정 순번이나 홀수, 짝수 요소에만 스타일을 부여하는 nth-child() 
+		정수,2n(찍수번째), 2n+1(홀수번째),3n(3의배수번째),3n+1(3의배수다음꺼),.......
+	*/
+	
+	body>ul>li:nth-child(2n){background-color:pink;}
+	ul#title>li:nth-child(2n+1){background-color:orange;} /*ul앞에 body를 붙이거나 ,ul안의 li에는 스타일적용하고 싶지 않을때는 id를 줘서*/
+	
+	/*
+		first-child : 처음 객체 선택
+		last-child : 마지막 객체 선택
+	*/
+	
+	#title>li:first-child{color:white; }
+	#title>li:last-child{color:green;}
+	
+</style>
+</head>
+<!-- 
+	html속성
+		oncontextmenu : 마우스 오른쪽 버튼 제어 (속성값:true,false) : 복사금지,,,
+		onselectstart : 선택시작을 불가능하도록 설정 , 드래그 금지n (속성값:true,false)
+
+ -->
+<body oncontextmenu="return false" onselectstart="return false">
+<ul id="title">
+	<li>홈페이지</li>
+	<li>자유게시판</li>
+	<li>Q&A</li>
+	<li>커뮤니티</li>
+	<li>고객센터
+		<ul>
+			<li>자주하는 질문</li>
+			<li>문의사항</li>			
+		</ul>
+	</li>
+	<li>회사소개</li>
+</ul>
+<style>
+	/* 구조 선택자
+		:first-of-type : 처음객체를 선택한다.
+		:last-of-type : 마지막객체를 선택한다.
+		
+		:nth-of-type() -> 정수,2n(짝수번째),2n+1(홀수번째),3n(3의배수번째),3n+1,....
+	
+	*/
+	.s>h1:first-of-type{
+		color:blue;
+	}
+	.s>h1:last-of-type{
+		color:green;
+	}
+	.s>h2:nth-of-type(2n){background-color:lightblue;}	
+	
+	/*부정 선택자*/
+	.s>h2:not([title=abc]){ /*타이틀이 abc가 아닌  h2*/
+		color:red;
+	}
+</style>
+<div class="s">
+	<h1>구조선택자 AAAAAA</h1>
+	<h2 title="abc">구조선택자 111111</h2>
+	<h1>구조선택자 BBBBBB</h1>
+	<h2>구조선택자 222222</h2>
+	<h1>구조선택자 CCCCCC</h1>
+	<h2>구조선택자 333333</h2>
+	<h1>구조선택자 DDDDDD</h1>
+	<h2>구조선택자 444444</h2>	
+</div>
+<style>
+	/*
+	 텍스트에 스타일 적용
+		::first-letter : 첫번째 문자에 대한 스타일 지정	
+		::first-line : 첫번째 줄에 스타일 지정
+		::selection : 선택한 문자에 대한 스타일 지정
+	*/
+	#txt::first-letter{color:red; font-size:1.3em; background:yellow;}
+	#txt::first-line{color:green; text-decoration:underline;}
+	#txt::selection{color:white; background:black;}
+</style>
+<div id="txt">
+삼성전자가 새로운 폴더블 스마트폰 '갤럭시Z폴드3'와 '갤럭시Z플립3'를 공개한 가운데, 각국 주요 IT매체에서도 큰 기대를 보이고 있다. 폴더블폰의 약점이던 내구성이 대폭 강화됐지만 가격은 저렴해졌다는 점을 높이 평가했다.
+삼성전자는 지난 11일 오후 11시 온라인으로 열린 '삼성 갤럭시 언팩 2021'에서 3세대 폴더블폰 '갤럭시Z폴드3'와 '갤럭시Z 플립3'을 비롯해 스마트워치 '갤럭시워치4', 무선이어폰 '갤럭시버즈2'를 공개했다.
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Collapse</h1>
+<!-- 버튼을 클릭하면 이미지가 접혔다. 펼쳤다가 하는 기능 -->
+<button class='btn btn-success' data-target="#view1" data-toggle="collapse">클릭하세요</button> <!--data-target에 id를 적어서 서로 연결됨 
+																							  data-toggle속성에 "collapse"를 입력하면 이미지가 접혓다 안접혔다 설정됨		-->
+<div id="view1" class="collapse show"> <!-- show가 있으면 첫화면에 이미지가 보이는상태로 설정 -->
+	<img src="../img/pang.gif"/>
+</div>
+<hr/>
+<button class='btn btn-secondary' data-target="#view2" data-toggle="collapse">클릭하면 내용 나오기</button>
+<div id="view2"  class="collapse">
+	아프간, 국민을 위한 나라는 없었다 (2021-08-29 09:41, 김영미 다큐엔드뉴스 코리아 대표기자 )
+탈레반이 지난 8월 10일(현지시간) 아프가니스탄 서부 파라주의 주도인 파라시에 진입하고 있다. AP 연합뉴스20년 전 미국에서 9·11테러가 벌어지고 아프가니스탄전쟁이 일어났다. 사실 미국의 일방적인 폭격에 탈···
+중동전문가 장지향 센터장 “이슬람 급진세력 해방구 된 아프간···지옥문 열렸다” (2021-08-29 10:03, 김찬호 기자 flycloser@kyunghyang.com )
+아프가니스탄 시민들이 지난 8월 19일(현지시간) 수도 카불에서 탈레반에 반대하는 시위를 하며 아프간 국기를 들고 거리행진을 하고 있다. 카불 | 로이터 연합뉴스전쟁이 시작된 지 20년 만에 아프가니스탄이 다시···
+IS-K 2명 보복사살, 미국 후속 공격 예고…대피작전 막판 카불 공항엔 추가 테러 경고도 (2021-08-29 12:12, 워싱턴|김재중 특파원 hermes@kyunghyang.com )
+미국 해병대원이 28일(현지시간) 대피 작전이 진행 중인 아프가니스탄 카불의 하미드 카르자이 국제공항에서 아프간인 가족의 심사가 진행되는 동안 어린 아이를 보호하고 있다. 미 해병대 제공|AP연합뉴스
+</div>
+
+<h1>Accordion</h1>
+<div id="accordion">
+	<div class="card"> <!-- card를 써서 같은애들로 묶임 -->
+		<div class="card-header" data-target="#a1" data-toggle="collapse">아코디언 적용예제1111</div><!-- 클릭하면 밑에 내용이 보이게 , class="card-header": 화면상에 보이게 하는것-->
+		<div class="collapse" id="a1"><!-- *여기에서 -->
+		아프간, 국민을 위한 나라는 없었다 (2021-08-29 09:41, 김영미 다큐엔드뉴스 코리아 대표기자 )
+		탈레반이 지난 8월 10일(현지시간) 아프가니스탄 서부 파라주의 주도인 파라시에 진입하고 있다. AP 연합뉴스20년 전 미국에서 9·11테러가 벌어지고 아프가니스탄전쟁이 일어났다. 사실 미국의 일방적인 폭격에 탈···
+		중동전문가 장지향 센터장 “이슬람 급진세력 해방구 된 아프간···지옥문 열렸다” (2021-08-29 10:03, 김찬호 기자 flycloser@kyunghyang.com )
+		</div><!-- *여기까지가 한묶음 -->
+	</div>
+	<div  class="card"><!-- *여기에서 -->
+		<div class="card-header" data-target="#a2" data-toggle="collapse">아코디언 적용예제2222</div><!-- 클릭하면 밑에 내용이 보이게 -->
+		<div class="collapse" id="a2">
+			<img src="../img/pang.gif"/>
+		</div><!-- *여기까지가 한묶음 -->
+	</div>
+	<div  class="card">
+		<div  class="card-header" data-target="#a3" data-toggle="collapse">아코디언 적용예제3333</div><!-- 클릭하면 밑에 내용이 보이게 -->
+		<div class="collapse" id="a3"><!-- *여기에서 -->
+		아프간, 국민을 위한 나라는 없었다 (2021-08-29 09:41, 김영미 다큐엔드뉴스 코리아 대표기자 )
+		탈레반이 지난 8월 10일(현지시간) 아프가니스탄 서부 파라주의 주도인 파라시에 진입하고 있다. AP 연합뉴스20년 전 미국에서 9·11테러가 벌어지고 아프가니스탄전쟁이 일어났다. 사실 미국의 일방적인 폭격에 탈···
+		중동전문가 장지향 센터장 “이슬람 급진세력 해방구 된 아프간···지옥문 열렸다” (2021-08-29 10:03, 김찬호 기자 flycloser@kyunghyang.com )
+		</div><!-- *여기까지가 한묶음 -->
+	</div>
+
+</div>
+<p>
+<p>
+<p>
+</body>
+</html>

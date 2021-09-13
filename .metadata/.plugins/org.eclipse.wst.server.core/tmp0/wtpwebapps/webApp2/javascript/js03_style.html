@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<ul>
+	<li id="first">첫번째</li>
+	<li>두번째</li>
+</ul>
+<img src="../img/flower3.jpg" id="i1"/>
+
+<script>
+	
+	//자바스크립트에서 스타일시트 적용하기 - id 활용	
+	//id를 얻어올수 있는 메소드
+	// 메소드("id").style.스타일속성
+	//background, background-color,background-image -> -다음에오는단어의첫글자를대문자로
+	//font-size -> fontSize
+	document.getElementById("first").style.backgroundColor="pink";
+	//그룹화에서 값이 여러개일때 사용방법
+	document.getElementById("i1").style.border="3px solid red";
+	
+	//html 태그의 속성을 제어한다.
+	//변수에 넣어서 사용...
+	var i = document.getElementById("i1");
+	
+	i.src="../img/flower1.jpg";
+	i.title="풍선도움말";
+	
+	//li태그내의 내용을 변경하기
+	document.getElementById("first").innerHTML = "<img src='../img/pang.gif'/>";
+	
+</script>
+</body>
+</html>

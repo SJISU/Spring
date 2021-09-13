@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <!-- 장치에 맞는 폰트 크기 설정 ex)모바일과 pc -->
+ <meta name="viewport" content="width=device-width, inital-scale=1"/>
+<style>
+	ul,li{margin:0; padding:0; list-style-type:none;} /*초기화*/
+	li{background:lightblue; margin:10px; border:1px solid #ddd;
+		 width:98%;		
+	}
+	
+	/* @media 반응형 스타일 지정*/
+	/*0~600px*/
+	/*     스크린종류 : all, screen, print, tv, projection..... + 픽셀범위:최소폭과 최대폭 설정 : {스크린사이즈가 그범위안에들어가면 속성지정} */
+	@media all and (min-width:320px) and (max-width:600px){
+		li{background-color : yellow;}	
+		li>img{display:none;}	/*이미지 안보이게 설정*/
+	}
+	
+	/*600px~900px*/
+	@media all and (min-width:601px) and (max-width:900px){
+		li{background:pink;}
+	}
+	
+	/*900px~*/
+	@media all and (min-width:901px){
+		li{background-color:black; width:48%; color:white; float:left;}
+	}
+	
+	
+	
+</style>
+</head>
+<body>
+<ul>
+	<li>금년도 대체공휴일이 데이터 자격검정 원서접수 기간과 중복되어 부득이 접수 편의를 위하여 아래와 같이 접수 기간을 변경하고자 하오니 접수 시 참조 바랍니다. </li>
+	<li>사실상 첫 번째 시행됐던 이번 실기시험에서 자동화 채점 프로그램을 이용해 채점을 진행하는 과정에서 수험자분들의 다양한 답안내용을 채점하는데 일부 오류가 발생하였습니다.</li>
+	<li>이에 우리원은 자체 전수검사와 함께 외부전문가들이 철저하게 수작업으로 전수검사를 실시하여 재채점을 진행하였습니다.</li>
+	<li>아울러 이번 시험 결과에 대해 이후로도 확인이 필요하신 수험자분들께서는 방문 확인 등이 가능하오니 참조해 주시기 바랍니다.</li>
+	<li>그리고 우리원은 이번 사안을 매우 엄중하게 인식해 관련 업무담당자를 인사 조치하고, 채점 프로그램 전면 개선을 비롯하여 채점과정 전반을 점검해 이러한 일들이 재발되지 않도록 만전을 기하겠습니다.</li>
+	<li>특히 실기 검정은 사전점수공개제도를 본격 도입해 수험자분들이 자가 채점한 결과와 한국데이터산업진흥원의 가채점 결과를 사전에 비교한 후, 이를 토대로 재검토 요청 시 확인이 가능하도록 개선하겠습니다. 자세한 내용은 추후 안내해 드릴 예정입니다.</li>
+	<li><img src="../img/flower.jpg"/></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> : 주소링크로 사용-->
+<script src="ckeditor/ckeditor.js"></script> <!-- 다운받은파일로사용 -->
+<script>
+	$(function(){
+		CKEDITOR.replace('content'); //name="content", name은 자바스크립트에서 사용된다
+		
+		$('input[type=button]').click(function(){
+			console.log(CKEDITOR.instances.content.getData()); //name="content"를의미한다..name이 aa이면 content대신 aa입력
+		});
+		
+	});
+</script>
+</head>
+<body>
+<form>
+	<textarea name="content" id="content"></textarea><br/> 
+	<input type="button">
+</form>
+</body>
+</html>

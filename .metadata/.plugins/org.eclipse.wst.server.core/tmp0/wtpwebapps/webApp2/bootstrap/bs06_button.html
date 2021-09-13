@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+	<!-- <input type="button"/> <button></button> submit <input type='submit'/> -->
+	<input type='button' value='input(button)'/><button>Button</button><input type="submit" value="input(submit)">
+	<hr/>
+	<!-- 
+		.btn-primary, btn-warning.......
+	 -->
+	<button class="btn btn-info">.btn:기본클래스</button><!-- 버튼인데 테투리가 사라짐 -->
+	<button class="btn btn-warning btn-lg">.btn:기본클래스</button> <!-- lg로 여백준다 -->
+	
+	<hr/>
+	<button class="btn btn-secondary btn-block">폭을 100%로 설정하는 클래스</button>
+	
+	<hr/>
+	<!-- .active : 활성화, disabled : 비활성화 -->
+	<button class="btn btn-danger">기본버튼</button>
+	<button class="btn btn-danger active">활성화</button>
+	<button class="btn btn-danger disabled">비활성화</button>
+	
+	<!-- 가로메뉴 만들기 -->
+	<div class="btn-group btn-lg" style="background-color:yellow">
+		<button class="btn btn-primary">JAVA</button>
+		<button class="btn btn-primary">Spring</button>
+		<button class="btn btn-primary">JSP</button>
+		<button class="btn btn-primary">Mybatis</button>
+		<button class="btn btn-primary">Ajax</button>	
+		<button class="btn btn-primary">Mybatis</button>
+		<button class="btn btn-primary">Ajax</button>	
+	</div>
+	
+	<!-- 새로메뉴 만들기 -->
+	<div class="btn-group-vertical" style="background-color:pink">
+		<button class="btn btn-info">Oracle</button>
+		<button class="btn btn-info">HTML</button>
+		<button class="btn btn-info">JAVASCRIPT</button>
+		<button class="btn btn-info">JQUERY</button>
+		<button class="btn btn-info">AJAX</button>
+		<button class="btn btn-info">BOOTSTRAP</button>
+	</div>
+	<hr/>
+	<!-- 가로로 서브메뉴 만들기 -->
+	<div class="btn-group">
+		<button class="btn btn-secondary">Application</button>
+		<button class="btn btn-secondary dropdown-toggle" data-toggle='dropdown'>Web</button><!-- dropdown-toggle -> web메뉴아래 화살표가생김, data-toggle속성을 써주어서 화살표를 누르면 메뉴가보임 -->
+			<!-- web의 서브메뉴 -->
+			<div class="dropdown-menu"><!-- dropdown-menu쓰면 메뉴 안보임 -->
+				<a href="#" class="dropdown-item">Spring</a>
+				<a href="#" class="dropdown-item">JSP</a>				
+			</div>
+	</div>
+	<!-- 세로로 서브메뉴 만들기 -->
+	<div class="btn-group-vertical">
+		<button class="btn btn-danger">Application</button>
+		<button class="btn btn-danger">Web</button>
+		<button class="btn btn-danger dropdown-toggle " data-toggle='dropdown'>Database</button>
+			<!-- Database의 서브메뉴 -->
+			<div class="dropdown-menu">
+				<a href='#' class="dropdown-item">ORACLE</a>
+				<a href='#' class="dropdown-item">DB2</a>
+				<a href='#' class="dropdown-item">몽고DB</a>
+			</div>
+	</div>
+	
+</div>
+</body>
+</html>

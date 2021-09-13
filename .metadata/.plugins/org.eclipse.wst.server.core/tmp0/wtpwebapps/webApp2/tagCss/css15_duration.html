@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		width:500px; height:500px; border:1px solid gray; 
+		overflow:hidden;
+		
+		/* 지정한 시간을 기준으로 변환한다.:transition-duration, (초단위)  */
+									/*접히거나 열릴때 걸리는 시간*/
+		transition-duration:2s; 		
+		
+		/* 투명도 : 슷자만큼 점점 투명해짐....*/
+		opacity : 1;
+	}
+	
+	/*체크가되면 div의 높이를 0으로만들어서 이미지가 안보이게만든다 -> input다음에 있는걸 선택 :동위선택자이용*/
+	
+	input:checked+div{
+		height:0px;
+		opacity:0;
+	}
+	
+</style>
+</head>
+<body>
+<input type="checkbox"/>클릭하세요
+<div>
+	<img src="../img/flower.jpg"/>
+	<img src="../img/flower3.jpg"/>
+</div>
+</body>
+</html>

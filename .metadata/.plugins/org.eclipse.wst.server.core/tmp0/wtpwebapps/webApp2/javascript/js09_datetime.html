@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function getNowDate(){
+		//현시스템의 날짜와 시간을 얻어오기
+		
+		//객체로 만들기
+		var now = new Date();
+		document.getElementById("nowDate").innerHTML = now;
+		var d1 = new Date(2020,10,4);
+		d1 = new Date("2021.10.10");
+		d1 = new Date("2021-10-04");
+		d1 = new Date(45647845348); //밀리초로 셋팅한것
+		document.getElementById("nowDate").innerHTML = d1;
+		
+		/*
+			년 : getFullYear(), 월 : getMonth(), 	  일 : getDate()
+			시 : getHours(),    분 : getMinutes(), 초 : getSeconds();
+			요일 : getDay -> 일요일:0, 월요일 :1,,,, 토요일 : 6
+			
+			2021년 8월 17일 15시 22분(화)			
+		*/
+		var y = now.getFullYear();
+		var m = now.getMonth()+1;
+		var d = now.getDate();
+		var h = now.getHours();
+		var M = now.getMinutes();
+		var w = now.getDay();
+		
+		var wStr="";
+		switch(w){
+		case 0: wStr ="일";break;
+		case 1: wStr ="월";break;
+		case 2: wStr ="화";break;
+		case 3: wStr ="수";break;
+		case 4: wStr ="목";break;
+		case 5: wStr ="금";break;
+		case 6: wStr ="토";break;
+		}
+			
+		document.getElementById("nowDate").innerHTML= y+" 년"+m+"월 "+d+"일 "+h+"시 "+M+"분("+wStr+")" ;
+ 	}
+</script>
+</head>
+<body onload="getNowDate()">
+<div id="nowDate"></div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(function(){
+		//숨기기
+		$('#hide').click(function(){
+			//hide함수 -> 폭과높이가줄어들고 이미지가 점점흐려지면서 사라짐
+			//					'slow','fast','normal',밀리초 : 숨김속도
+			$('img').first().hide(3000);
+			
+		});
+		
+		//보여주기
+		$('#show').click(()=>{
+			//show 함수 ->폭과높이가커지고 이미지가 진해진다
+			$('img:first').show(3000);
+		});
+		//보여주기와 숨기기 반복
+		$('#toggle').click(function(){
+			//toggle 함수 -> 있으면 없애고 없으면 보여주고
+			$('img:first').toggle(3000);
+		});
+		
+		//점점흐리게,점점진하게 fadeIn,fadeOut
+		$("#fadeIn").click(function(){
+			//fadeIn함수
+			//  		 점점진하게 되는 속도 두번재매개변수:콜백함수 -> 3초동안 fadein하고나서 실행되는 함수
+			$('img:first').fadeIn(3000,function(){
+				alert("fadeIn콜백함수 실행됨.");
+			});
+		});
+		
+		$("#fadeOut").click(function(){
+			//fadeOut함수
+			//  				점점흐려지는 되는 속도
+			$('img:first').fadeOut(3000);
+		});
+		
+		$('#fadeToggle').click(function(){
+			$('img:first').fadeToggle(3000);
+		});
+		
+		//slideUp,slideDown,slideToggle
+		$('#slideUp').on('click',()=>{
+			$('img:first').slideUp(3000,function(){
+				console.log('slideUP실행됨')
+			});
+			
+		});
+		
+		$('#slideDown').on('click',()=>{
+			$('img:first').slideDown(3000);
+			
+		});
+		
+		$('#slideToggle').on('click',()=>{
+			$('img').slideToggle(3000);
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+<button id="hide">숨기기(hide)</button>
+<button id="show">보여주기(show)</button>
+<button id="toggle">hide&show</button>
+<button id="fadeIn">점점진하게(fadeIn)</button>
+<button id="fadeOut">점점흐리게(fadeOut)</button>
+<button id="fadeToggle">fadeIn&fadeOut</button>
+<button id="slideUp">점점위로(slideUp)</button>
+<button id="slideDown">점점아래로(slidedown)</button>
+<button id="slideToggle">slideUp&slidedown</button>
+<hr/>
+<img src="../img/flower3.jpg"/><br/>
+<img src="../img/flower1.jpg"/>
+</body>
+</html>

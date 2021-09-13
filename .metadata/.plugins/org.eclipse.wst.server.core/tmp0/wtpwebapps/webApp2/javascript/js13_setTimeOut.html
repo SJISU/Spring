@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ #view{
+ 	font-size:5em;
+ }
+</style>
+<script>
+	var num=0;
+	function numOutput(){
+		num++;
+		document.getElementById("view").innerHTML = num;
+		
+		//setTimeout 
+		//		                호출함수      시간간격
+		var time = setTimeout("numOutput()",500); //재귀호출 - 자신의 함수를 계속 호출하여 반복한다
+		
+		// clearTimeout() : 재귀호출 중단
+		if(num>=10){
+			//반복 중단
+			clearTimeout(time);
+		}
+	}
+	
+	/*
+	setTimeOut(func, ms) 는 일정 시간 이후 매개변수로 주어진 함수를 실행하는 함수이고
+	setInterval(func, ms) 는 일정 시간 간격으로 매개변수로 주어진 함수를 실행하는 함수이다.
+	*/
+	
+</script>
+</head>
+<body onload="numOutput()">
+<h1>setTimeout : 일정한 시간 단위 함수를 재호출하여 반복한다.</h1>
+<h1>clearTimeout : 중단</h1>
+<div id="view"></div>
+</body>
+</html>

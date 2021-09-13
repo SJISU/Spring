@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	
+	body{
+		margin:0;
+	}
+	.layout{   /*창의 크기를 조절하면 양옆은 줄어도 가운데는 줄어들지 않아야한다*/
+		width:1200px;
+		
+		margin: 0px auto;  /*가운데에 위치하게 설정*/
+		
+	
+	}
+	#top{
+		height:100px;
+		background-color:#ddd;
+		
+	}
+	#menu{
+		background-color:lightblue;
+	}
+	#menu>div{
+		background-color:pink;
+		height:300px;
+	}
+	#content{
+		background-color:yellow;
+		height:500px;
+	}
+	
+</style>
+</head>
+<body>
+<div id="top" class="layout"> <!--div는 놔누면 기본값이 100%  -->	
+
+</div> 
+<div id="menu">
+	<div class="layout">
+	fgfgfgfg
+	</div> 
+</div>
+<div id="content" class="layout"> 
+</div>
+</body>
+</html>

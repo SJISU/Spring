@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<img src="../img/flower1.jpg"/><br/>
+<script>
+	document.write();
+	
+	//Document 객체는 웹 페이지 그 자체를 의미,,,,
+	document.title = "document객체"; 
+	
+	// location 내장변수
+	document.write('location ->' + document.location); // protocal+도메인+port+context+경로+파일명	
+	// url내장변수
+	document.write('<br/>url -> ' +document.URL);// protocal+도메인+port+context+경로+파일명
+	// domain내장변수
+	document.write('<br/>domain -> '+ document.domain); //도메인주소만
+	
+	// lastModified내장변수
+	document.write('<br/>마지막 작성일 ->'+ document.lastModified);
+	
+	document.bgColor = "#897589";
+	document.write("<br/>bgColor->"+ document.bgColor);
+	
+</script>
+</body>
+</html>

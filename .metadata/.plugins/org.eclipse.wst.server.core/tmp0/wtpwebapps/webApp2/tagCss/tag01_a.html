@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A태그</title>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+<pre>
+     h1태그는 heading 의 약자로 글의 제목으로 강조하고 싶을 때 사용한다.
+     진하게 , 글자크기 , 설정. 숫자가 클수록 작은 크기의 글자이다. 문단의 기능도 한다 (제목사이에 여백이 있다.)
+     h1, h2, h3, h4, h5, h6 까지 존재한다.
+</pre>
+<h2>같은페이지의 특정위치로 링크걸기<a href='#bottom' id='top'>맨아래로</a></h2>
+1. <a href='#a1'>HTML이란</a><br/>
+2. <a href='#b1'>JAVAScript란</a><br/>
+3. <a href='#c1'>JQuery란?</a><br/>
+4. <a href='#d1'>JSP란?</a><br/>
+5. <a href='#e1'>Spring이란?</a><br/>
+
+<h1 title="문자에 링크걸기~~~~">문자에 링크걸기</h1>
+<pre>
+	_blank : 새로운 창에 페이지 열기
+</pre>
+<a href='../index.html'>홈페이지</a><!-- ../ : 상위폴더로 이동: 상대주소 지정방식 -->
+<a href="/webApp2/index.html">홈페이지</a><!-- 요청된 리소스 [/index.html]은(는) 가용하지 않습니다.: 이파일이 없다는말 -> 앞에 /webApp2/를 써주면 된다-->
+<a href="https://www.nate.com" target="_blank" title="풍선도움말~~~~~~">네이트</a> <!-- 외부사이트 링크걸기 -->
+<a href="https://sports.news.nate.com/view/20210805n03271">스포츠뉴스</a>
+
+<h2>이미지에 링크걸기</h2>
+<a href="https://www.youtube.com/"><img src = "/webApp2/img/packman.jpg" width="100"/></a>
+
+<h2>a태그를 이용한 다운로드</h2>
+<a href="/webApp2/etc/bbbb.pptx" download>ppt파일</a><br/> <!-- 다운이 안되고 실행만된다면 'download'를 써준다 -->
+<a href ="/webApp2/etc/aaaa.pdf">pdf파일</a><br/>
+<a href ="/webApp2/etc/apache-tomcat-9.0.50.exe">exe파일</a><br/>
+<a href ="/webApp2/etc/demo.sql">sql파일</a><br/>
+<a href ="/webApp2/etc/ojdbc8.jar">jar파일</a><br/>
+<a href ="/webApp2/etc/캠퍼스.jpg" download>jpg파일</a><br/>
+
+<h6>map을 이용한 링크걸기</h6>
+
+
+
+<hr/><!-- 화면에 줄 긋기 : 경계선 구분 표시 -->
+<a id="a1">1. HTML이란</a><br/>
+<p>HTML이란????</p><p>HTML이란????</p><p>HTML이란????</p><p>HTML이란????</p><p>HTML이란????</p><p>HTML이란????</p><p>HTML이란????</p><p>HTML이란????</p><p>HTML이란????</p>
+<hr/>
+<a id='b1'>2. JAVAScript이란</a><br/>
+<p>JAVAScript이란----</p><p>JAVAScript이란----</p><p>JAVAScript이란----</p><p>JAVAScript이란----</p><p>JAVAScript이란----</p><p>JAVAScript이란----</p><p>JAVAScript이란----</p>
+<hr/>
+<a id='c1'>3. JQuery란?</a><br/>
+<p>JQuery란????</p><p>JQuery란????</p><p>JQuery란????</p><p>JQuery란????</p><p>JQuery란????</p><p>JQuery란????</p><p>JQuery란????</p><p>JQuery란????</p><p>JQuery란????</p>
+<hr/>
+<a id='d1'>4. JSP란?</a><br/>
+<img src="/webApp2/img/packman.jpg"/>
+<hr/>
+<a id='e1'>5. Spring이란?</a><br/>
+<img src="/webApp2/img/packman.jpg"/>
+<hr/>
+<a id='bottom' href='#top' >맨위로</a><br/>
+</body>
+</html>

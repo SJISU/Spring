@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(()=>{
+		$('button').click(function(){
+			//ajax 함수 이용하여 서버에 가서 정보를 얻어와서 출력
+			$.ajax({
+				url:'ajax_data.json',//서버에 접속할 파일 -> 서버에 가서 어떤파일가져올것인지
+				dataType:'json', //전송받을 정보의 데이터 타입
+				success:function(result){//서버에서 정상적으로 접속할여 정보를 받았을때 실행하는 함수, 받은 정보는 매개변수(result)가 가지고 있다.
+					// result에 있는 랭크를 반복, 반복문 실행할 fucntion
+					//						 i=0,1,2 j=obj ,obj, obj, obj(name,local,tel...)
+					$.each(result.rank,function(i,   j){
+						//obj정보를 가져와야함
+						var tag ="<li>"+j["name"]+","+j["local"]+","+j["tel"]+"</li>" //j.name도 가능
+						$('#jsonData').append(tag);
+					});					
+				},error:function(request,status,error){//전송실패시 실행되는 함수, 매개변수는 생략가능
+					console.log('code=',request.code);	
+					console.log('message=',request.responseText);	
+					console.log('status',status);	
+					console.log('error',error);	
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<button>클릭하시면 json파일의 내용을 가져옵니다</button>
+<hr/>
+<ol id="jsonData"></ol>
+<img src="../img/flower3.jpg"/>
+</body>
+</html>

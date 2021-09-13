@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*
+		자손선택자
+		> : 자손지정
+	*/
+	
+	body>ul{color:red;}
+	
+	div>ul{color:green;}
+	
+	/*
+		후손선택자
+		: 한칸 띄우고 후손을 적는다
+	*/
+	
+	div li{background-color:pink;} /*div의 후손중에 li*/
+	div b{font-size:2em;}
+	
+	/*
+		반응선택자 
+		: ':hover' 가상클래스- 이미단들어져있는이름
+	*/
+	
+	ul>li:hover{background-color:#ddd;}
+	 /*후손자손일때는(ul li ,ul>li)일때는 되고 단독으로는 적용안됨 */
+	li:active{background-color:yellow;  color:cyan;}
+	
+</style>
+</head>
+<body>
+	<div>
+		<p>
+			<ul>
+				<li>111111111</li>
+				<li>222222222</li>
+				<li>333333333</li>
+			</ul>
+		</p>	
+	</div>
+	<div>
+		<p>문단을 <b>정의</b>하는 태그</p>		
+	</div>
+	<ul>
+		<li>AAAAAAAAA</li>
+		<li>BBBBBBBBB</li>
+		<li>CCCCCCCCC</li>
+	</ul>	
+</body>
+</html>

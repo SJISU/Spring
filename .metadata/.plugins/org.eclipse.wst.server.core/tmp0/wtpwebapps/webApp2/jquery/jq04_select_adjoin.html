@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(function(){
+		//인접선택자
+		
+		// 전체선택자(*) , 태그, 아이디(#), 클래스(.), 자손(>), 후손( )
+		
+		//태그선택자
+		// children() 함수 : 선택자의 자손객체
+		$("div").children(".one").css("background-color","lightblue"); //div의 자손중에 one이라는 클래스
+		$("div").children("#first").css("background-color","yellow");
+		
+		// next() 함수 : 선택자의 다음객체
+		$("#first").next().css("color","red");
+		
+		//prev() 함수 : 선택자의 이전객체
+		$("#i").prev().css("border","5px solid gray");
+		
+		//parent() : 선택자의 부모객체
+		$("#i").parent().css("border","5px solid blue"); //-> 대상은 body가됨..
+		
+		//siblings() : 선택자의 형제들
+		$("#first").siblings().css("font-size","40px"); // ->  자신은 제외하고 형제들만 바뀜		
+		$("#first").siblings().attr("title","선택자 연습중~~~~~~~~~~~~~");
+	});
+</script>
+</head>
+<body>
+<div>
+	<h1 id="first">인접 선택자</h1>
+	<h1 class="one">children 선택자</h1>
+	<h2 class="one">next 선택자</h2>
+	<h4>prev 선택자</h4>
+	<h4>parent 선택자</h4>
+	<h4>siblings 선택자</h4>
+	<h4>후손, 자손선택자</h4>
+</div>
+<img src="../img/flower2.jfif" id="i"/>
+</body>
+</html>

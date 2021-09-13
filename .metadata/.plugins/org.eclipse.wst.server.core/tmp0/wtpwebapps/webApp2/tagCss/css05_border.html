@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{width :200px; height :200px;}
+	
+	/*
+		border-style : 선모양 (solid : 실선, dotted : 점선, dashed(), double(이중선), groove (홈), inset(볼록) )
+				border-right-style, border-left-style, border-top-style, border-bottom-style
+		
+		border-width : border-left-width, border-right-width,border-top-width,border-bottom-width
+		border-color : border-left-color, border-right-color,border-top-color,border-bottom-color
+	*/
+	
+	img{
+		/*
+		border-style:dashed;
+		border-right-style:double; 
+		*/
+		
+		border-style: solid dotted dashed; /* 시계방향으로 위치가 잡힘*/
+		border-width: 10px 15px 5px 10px; 
+		border-color : red green blue pink;
+		
+	 }
+	 li{
+	 
+	 	border:solid 5px lightblue; /*border그룹화여 style,width,color로 묶을때는 위처럼 여러개는 사용불가,1개만 사용가능*/
+	 
+	 }	
+	
+	
+</style>
+</head>
+<body>
+<img src="../img/campus.jpg"/>
+<img src="../img/flower3.jpg"/>
+<img src="../img/flower.jpg"/>
+<ul>
+	<li>border 속성</li>
+	<li>style : 선모양</li>
+	<li>width : 선의 두께</li>
+	<li>color : 선의 색상</li>
+</ul>
+</body>
+</html>

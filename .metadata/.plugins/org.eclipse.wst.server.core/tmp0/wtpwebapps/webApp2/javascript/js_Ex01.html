@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var a ="5";
+	var b ="6a";
+	var c =5;
+	
+	document.write(isNaN(a)+","); //false
+	document.write(isNaN(b)+","); // true : 문자
+	document.write(isNaN(c)+"<br/>");//false
+
+	document.write(b + c +"<hr/>");
+	
+   function calcu(){
+      var n1Obj = document.getElementById("num1");
+      var n2Obj = document.getElementById("num2");
+      var n1 = n1Obj.value;
+      var n2 = n2Obj.value;
+      
+      if(!isNaN(n1) && !isNaN(n2)){
+    	  
+    	  var n1Int = parseInt(n1);
+    	  var n2Int = parseInt(n2);
+    	  
+	      var add = n1Int + n2Int;
+	      var minus = n1Int - n2Int;
+	      var mul = n1Int * n2Int;
+	      var div = n1Int / n2Int;
+	      
+	      var r = n1+"+"+ n2+"="+add+"<br/>";
+	         r += n1+"-"+ n2+"="+minus+"<br/>";
+	         r += n1+"*"+ n2+"="+mul+"<br/>";
+	         r += n1+"/"+ n2+"="+div+"<br/>";
+	         
+	      document.getElementById("result").innerHTML = r;   
+	      
+	      //초기화
+	      n1Obj.value = "";
+	      n2Obj.value = "";
+      
+      }else{ //숫자가 아닌값이 입력 되었을때
+      	document.getElementById("result").innerHTML = "값을 잘못입력하였습니다." ;
+      }
+   }
+
+      
+</script>
+</head>
+<body>
+첫번째 수  : <input type="text" id="num1"/><br/>
+두번째 수  : <input type="text" id="num2"/><br/>
+<input type="button" value = "결과보기" onclick="calcu();"/>
+<div id="result"></div>
+</body>
+</html>

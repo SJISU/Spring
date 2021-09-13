@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(()=>{
+		// html() 함수 : 특정객체에 html태그를 추가한다. -> innerHTML기능 ,기존의 있는것은 지워지고 추가된다 
+		var tag = "<a href='https://daum.net'>다음으로 가기</a>";//넣을내용
+		$('#daum').html(tag); //id="daum"인 값의 내용이 바뀜....
+		console.log($('#daum').html());
+		
+		//text() : 특정객체의 내용을 문자로 추가한다.
+		var tag2 = "문자로 추가된 <b>내용</b>이다."; //추가할 내용
+		$('h2').children('a').text(tag2); //$('h2>a') //태그가 적용되지않고 그대로 문자로 화면에 출력된다
+		
+		//ㄴ---> html은 태그가 적용되지만 text는 태그가 적용되지않는다
+		
+		//h2>a의 href="htpps://www.nate.com"
+		$('h2>a').attr('href','https://www.nate.com'); //href의 속성값을 네이트주소로 설정 //속성적용
+		
+		//removeAttr() : 속성지우기
+		$('a').removeAttr('href'); //a태그의 href라는 속성을 지워라
+		
+	});
+</script>
+</head>
+<body>
+<h1 id="daum">객체조작 1</h1>
+<h2><a href="">객체조작 2</a></h2>
+<div id="result"></div>
+</body>
+</html>

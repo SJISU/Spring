@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	 #result{background-color:lightblue;}
+</style>
+<script>
+	// 연산자 : +,-,*,/,%,||,&&,!,>,<,>=,<=,+=,-=,*=...,++,--....
+	// if, if~else, while, for, do-while, break, continue, swith
+	
+	//alert("페이지가로딩됨"); <!-- 대화상자 -->
+	
+	//버튼을 클릭하면 구구단을 구하는 함수
+	//		 함수명(변수,변수,변수)
+	function gugudan(dan){
+		var r = "";
+		for(i=2; i<=9; i++){
+			r +=dan +"*"+i+"="+(dan*i)+"<br/>"; /*여러줄 출력하고싶어서 = 이나리 += 사용*/
+		}
+		
+		console.log(r);
+		document.getElementById("result").innerHTML = r; /* r의값 찍기 , r출력은 함수안에 잇어야한다*/
+	}
+	
+	
+	//마우스오버시 호출 - 함수이용
+	/* 
+	function imageChange(){
+		document.getElementById("img").src="../img/flower.jpg"; // 속성값 바꾸기
+	}
+	//마우스아웃시 호출
+	function imageChange2(){ //원래대로 돌리기
+		document.getElementById("img").src="../img/flower3.jpg";
+	} 
+	//매개변수를 이용하여 함수1개로 이벤트 처리
+	function imageChange(file){ //원래대로 돌리기
+		document.getElementById("img").src = "../img/flower"+file+".jpg";
+	} 
+	*/
+	function imageChange(obj, n){
+		obj.src="../img/flower"+n+".jpg";
+	}
+	
+</script>
+</head>
+<body>
+<!--                                   *이벤트처리->자바스크립트 영역이됨,자바스크립트 명령어 사용가능     -->
+<!-- 										     함수호출                                   -->
+<input type="button" value="click 하세요" onclick="gugudan(9);alert('구구단이 출력됨.....')"/>
+<button>클릭 하세요.</button>
+<div id="result">결과가 출력될 위치</div>
+<!-- <img src="../img/flower3.jpg" id="img" onmouseover="imageChange()" onmouseout="imageChange2()"/>  -->  <!-- 함수사용 -->
+<!-- <img src="../img/flower3.jpg" id="img" onmouseover="imageChange(1)" onmouseout="imageChange(3)"/> --> 
+<!-- <img src="../img/flower3.jpg" id="img" onmouseover="this.src='../img/flower1.jpg'" onmouseout="this.src='../img/flower3.jpg'"/> --> 
+<img src="../img/flower3.jpg" id="img" onmouseover="imageChange(this, 1)" onmouseout="imageChange(this, 3)"/>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>표만들기</h1>
+<pre>
+	table태그 : 표의 시작과 끝
+	tr태그 : 표의 줄을 생성 
+	td, th태그 : 줄에 칸생성 / th는 글자가 강조되고 가운데정렬
+	caption : 표의 제목을 설정 // 가운데정렬로 제목이 쓰여짐-창의크기를조절하여 표가 커지고작아져도 제목은 항상 가운데 //tr사이에 적어도된다
+	
+	colgroup,col : 컬럼그룹지정 : 열선택//테이블태그안에서 사용
+	
+	thead태그(상단) : t는테이블
+	tbody태그(본문)
+	tfoot태그(하단) 
+	
+	width,height,border
+	cellspacing : 선과 선사이의 여백설정// line과line사이의 여백
+	cellpadding : 선과 내용사이의 여백설정 // 표안의 글자나 이미지로 컨텐츠를 채웟을때 경계선과 컨텐츠사이의 여백
+	bgcolor : 
+			 테이블의 칸들에 배경색을 지정하고싶을때 : table 안에 bgcolor 사용
+			 같은줄의 배경색을 같은색으로 지정하고싶을때 : tr안에 bgcolor 사용 
+			 한 칸안에 그칸만 배경색 지정하고싶을때 : td안에 bgcolor 사용 
+	
+	
+</pre>
+<table border="10" width="50%" cellspacing="0" cellpadding="10">
+   <caption><b>오늘의 일정표</b></caption>
+   <colgroup>
+    	<!--  <col/> :컬럼태그하나가 한열이라는뜻 -->
+   		<!-- span : 칸합침 -->
+   		<!-- 첫번째 컬럼과 두번째 컬름을 같은기능 적용 -->
+   		<col span="2" bgcolor='#ddd'/>
+   		<col background="../img/campus.jpg"/>
+   </colgroup>
+ 	<thead>
+   		<tr height="100">
+      		<th width="50">테이블태그 연습중</th>
+      		<td>코스모스</td>
+      		<td><img src='../img/packman.jpg' width="100"></td>      
+   		</tr>
+   	</thead>
+   <tbody>
+    <tr>
+      <td  height="200">두번째줄</td>
+      <td>
+      		<table border='1'>
+      			<tr>
+      				<td>XXXX</td>
+      				<td>YYYY</td>
+      			</tr>
+      		</table>
+      </td>
+      <td>AAAA</td>
+   </tr>
+   <tr>
+      <td  height="200">두번째줄</td>
+      <td>2222</td>
+      <td>AAAA</td>
+   </tr>
+   </tbody>
+   <tfoot>
+	<tr height="100">
+		<td>장미</td>
+		<td>맨드라미</td>
+		<td>해바라기</td>
+	</tr>
+	</tfoot>  
+</table>
+</body>
+</html>

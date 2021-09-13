@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(function(){
+		
+		function zeroSet(data){ //월 일 시 앞에 0붙여서
+			if(data<10){
+				return "0" +data;
+			}else{
+				return data;
+			}
+		}
+		
+		
+		$('#ajaxStart').click(function(){//ajaxStar가 클릭되면 서버에가서 rss파일을 가져와서 리스트를 찍을것이다
+			$.ajax({
+				url:'Rss_news.xml',
+				dataType:'xml',
+				success:function(result){
+					if($(result).find('item').length>0){
+						$(result).find('item').each(function(){
+							var tag="<li><a href='"+$(this).find('link').text()+"&utm_source=khan_rss&utm_medium=rss&utm_content=kh_world"+"'>"+$(this).find('title').text()+"</a>("; //제목-링크
+							//날짜
+							var dt = $(this).find('dc').text();
+							console.log(dt,"----")
+							//년-월-일 시:분
+							var y = realDate.getFullYear();
+							
+							var m = realDate.getMonth()+1; // 
+							var d = realDate.getDate();
+							
+							var h = realDate.getHours();
+							var mm = realDate.getMintes();
+							
+							var dateTxt = y+'-'+zeroSet(m)+'-'+zeroSet(d)+'-'+zeroSet(h)+'-'+zeroSet(mm);
+							tag+=dateTxt+','+$(this).find('author').text()+")<br/>";
+							
+							tag+=$(this).find('description').text()+"</li>";
+							$('news').append(tag);
+						});
+					}
+				},error:function(){
+					console.log('news전송실패');
+				}
+			
+			});
+			
+		});
+	});
+</script>
+</head>
+<body>
+<button id="ajaxStart">ajax로 RSS파일정보 얻어오기</button>
+<ol id="news">
+	
+</ol>
+</body>
+</html>

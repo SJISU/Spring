@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="현재페이지에 대한 설명을 표시하는곳이다."/>
+	<title>폼태그</title>
+	<style>
+		textarea{width:500px; height:100px}
+	</style>
+</head>
+<body>
+<!-- 
+	method 속성 : 데이터 전송방식
+				get : 주소표시줄에 변수와 데이터가 표시된다.
+				post : 데이터를 숨겨서 서버로 가져간다.
+ -->
+
+<form method="get" action="aaaa.jsp">
+	
+	<!-- 한줄의 문자열을 입력하는 컴포넌트 : 이름,아이디,주소,주민번호,전화번호,이메일,글제목......
+		readonly , disabled
+	 -->
+	<label>아이디</label> : <input type="text" name="userid" id="userid" value="goguma" maxlength="10" placeholder="아이디입력" disabled/><br/>
+	<label>이름</label> : <input type="text" name="username" id="username"/><br/>
+	<label>비밀번호</label> : <input type="password" name="userpwd" id="userpwd"/><br/>
+	<label>파일첨부</label> : <input type="file" name="filename" id="filename"/><br/>
+	<label>관심분야</label> : <input type="checkbox" name="intro" value="배구"/> 배구 
+						    <input type="checkbox" name="intro" value="농구" checked/>농구	
+						    <input type="checkbox" name="intro" value="축구"/>축구<br/>
+	
+	<label>성별</label> : <input type="radio" name="gender" value="M"/>남자
+						<input type="radio" name="gender" value="F" checked/>여자
+	
+	<h2>여러줄의 텍스트르 입력하는 박스</h2>			
+	자기소개 : <textarea name="txt" >글 내용을 입력하는 곳</textarea><br/>
+	
+	<!-- select, option, optgroup 태그 -->
+	콤보박스 : <select name="comList" size="5" multiple >
+				<option value="java">자바</option>
+				<option value="javascript">자바스크립트</option>
+				<option value="html">html</option>
+				<option value="css">스타일시트</option>
+				<option value="spring">스프링</option>		
+			</select><br/>
+	리스트group : <select name="comList2" size="5">
+					<optgroup label="프론트엔드">
+						<option value="java">자바</option>
+						<option value="javascript">자바스크립트</option>
+						<option value="html">html</option>
+					</optgroup>
+					<optgroup label="백엔드">
+						<option value="css"  selected >스타일시트</option>
+						<option value="spring">스프링</option>
+					</optgroup>						
+			    </select><br/>
+	<!--  -->
+	<input type="submit" value="등록"/>
+	
+	<!-- submit -->
+	<input type="button" value="등록"/>
+	<input type="image" src="../img/packman.jpg"/>  <!-- submit 한것이랑 실행이 똑같다, submit과 같은 기능을 한다... -->
+	<input type="reset" value="다시쓰기"/>  <!-- form안의 컴포넌트들을 리셋 -->
+	
+	<hr/>
+	<!-- date -->
+	date : <input type="date" name="date1"/><br/>
+	datetime-local : <input type="datetime-Local" name="time1"/><br/>
+	month : <input type="month" name="m1"/><br/>
+	week : <input type="week" name="w1"/><br/>	
+	color : <input type="color" name="c1"/><br/>
+	number : <input type="number" name="num" min="-10" max="10" step="2"/><br/>
+	range : <input type="range" name="ran1" min="1" max="100" value="50"/>
+	
+</form>
+</body>
+</html>

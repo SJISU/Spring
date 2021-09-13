@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#d1,#d2,#d3,#d4{width : 200px; height:200px;}
+	#d1{background:pink;}
+	#d2{background:orange;}
+	#d3{background:yellow;}
+	#d4{background:cyan;}
+	
+	/* 
+		position속성 : 좌표지정할 수 있다.
+		속성값
+		static : position 생략시
+		relative : 좌표의 기준이 현재위치, 자신의 공간을 차지하고 있다.
+		absolute : 좌표의 기준 body, 자신의 공간을 반납한다..
+	
+		left,right,top,bottom : 좌표를 지정하는 속성
+		
+		z-index: 겹치기 순서 값이 클수록 위로 표시된다...//겹치는 순서를 정해주는 속성,큰게 위로 온다
+	*/
+	
+	
+	#d1{left:100px;} /*position생략 -> staic*/	
+	#d2{position:relative; top:100px; left:100px; z-index:100;}
+	#d3{position:absolute; left:200px; top:200px;} 
+	
+	
+	#i1{position:absolute; left:300px; top:300px;}  /*d4(position:static)이 아니라 body를 기준으로 잡는다*/	 
+	#i2{position:absolute; left:50px; top:50px;}   /*d2(position:relative)박스안을 기준으로 잡는다*/
+	
+</style>
+</head>
+<body>
+<div id="d1"></div>
+<div id="d2">
+	<img src="../img/flower3.jpg"  width="100px" id="i2"/>
+</div>
+<div id="d3"></div>
+<div id="d4">
+	<img src="../img/flower1.jpg" width="100px" id="i1"/>
+</div>
+</body>
+</html>

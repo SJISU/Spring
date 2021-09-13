@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        #g, #geoMap{height:800px; position:relative; border: 1px solid gray;}
+        #geocodeSearch{position:absolute; width:400px; top:50px; left:400px;z-index:1;}
+    </style>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiyi8IBKuUJnY0RccI6KvVWJslar5cPWg&callback=initMap"></script>
+    <script>
+    var latitude;
+    var longitude;
+    
+    var nameGeo; //지명
+    var addr;//url주소
+    var geoImg;
+    
+    function setMapReset(){ //검색할 지명,url,이미지 배열
+ 	   latitude = 37.5729503;
+ 	   longitude = 126.9793578;
+ 	   
+ 	   nameGeo = ['서울 선유도','서울 뚝섬','서울 잠실종합운동장','서울 시청']; //지명
+ 	   addr = ['http://www.nate.com','https://www.naver.com','https://www.daum.net','https://www.seoul.go.kr']; //url주소
+ 	   geoImg = ['../../img/flower1.jpg','../../img/flower2.jfif','../../img/flower3.jpg','../../img/pang.gif']; //image
+    }
+    
+
+    var map;
+    var geoCoder;
+    
+    function initMap(){ 
+ 	   
+ 	  setMapReset();
+ 	   
+       var myCenter = new google.maps.LatLng(latitude,longitude);
+       var option = {
+             center : myCenter,
+               zoom : 12,
+               mapTypeId : google.maps.MapTypeId.ROADMAP //지도종류 
+       };
+       map = new google.maps.Map(document.getElementById("geoMap"), option);        
+       
+       geoCoder = new google.maps.Geocoder();//geocode객체
+        
+       for(var i=0; i<nameGeo.length; i++){
+      	  //			지명,주소,해당이미지
+      	 setMapPosition(nameGeo[i],addr[i],geoImg[i]);
+       }
+     }//initMap
+     
+     function setMapPosition(name2,addr2,geoImg2){
+    	 geoCoder.geocode({'address':name2},
+    		function(results,status){
+    		 	if(status=='OK'){
+    		 		map.setCenter(results[0].geometry.location);
+    		 		
+    		 		//마커표시
+    		 		var marker = new google.maps.Marker({
+    		 			map:map,
+    		 			icon:'gmap_pin.png',
+    		 			title:results[0]['formatted_address'],
+    		 			position : results[0].geometry.location
+    		 		});
+    		 		
+    		 		var la = results[0]['geometry']['location']['lat']();
+    		 		var lo = results[0]['geometry']['location']['lng']();
+    		 		
+    		 		var popMsg = "위도:"+la+"<br/>경도:"+lo+"<br/>";
+    		 	}
+    		 	
+    	 	}
+    			 
+    	 
+    	 
+    	 );
+    	 
+     }
+    </script>
+</head>
+<body>
+<div id="g">
+    <div id="geocodeSearch">
+        <input type="text" id="address" value="신촌역"/>
+        <input type = "button" value = "Search" onclick="mapSearch()"/>
+    </div>
+    <div id="geoMap"></div>
+</div>
+</body>
+</html>

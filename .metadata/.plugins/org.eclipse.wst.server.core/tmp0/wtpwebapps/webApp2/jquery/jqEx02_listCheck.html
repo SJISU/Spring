@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	 ul,li{margin:0;padding:0;list-style-type:none;}
+   .container{width:800px; margin:0 auto;}
+   
+   #boardList>li{float:left; height:40px; line-height:40px; border-bottom:1px solid #ddd;width:10%;}
+
+   #boardList>li:nth-child(6n+3){width:50%;} /* 제목부분 */
+   
+   .wordCut{ 
+   			white-space:nowrap; /* 줄안바꿈 */
+   			overflow:hidden; /*넘침데이터숨기기*/
+   			text-overflow:ellipsis;/*넘친경우 ... 표시하기*/
+   }
+</style>
+<script>
+	//전테선택 체크하면 change
+	$(()=>{
+		$('#allChk').on('change',function(){ //전처선택의 상태가 변하면 실행			
+			$('#boardList input[type=checkbox]').prop('checked',$(this).prop('checked')); // this= #allchk //전체선택이 체크되면 다체크 해제되면 다 해제
+		});
+		
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<input type="checkbox" id="allChk">전체선택
+	<ul id="boardList">
+		<li><input type="checkbox" name="chk" value="100"/></li>
+		<li>100</li>
+		<li class='wordCut'>글제목 dsafs sdfs sdfs  sdf sdfsd sdf </li>
+		<li>홍길동</li>
+		<li>등록일</li>
+		<li>조회수</li>
+		<li><input type="checkbox" name="chk" value="99"/></li>
+		<li>99</li>
+		<li class='wordCut' >글제목</li>
+		<li>홍길동</li>
+		<li>등록일</li>
+		<li>조회수</li>
+		<li><input type="checkbox" name="chk" value="98"/></li>
+		<li>98</li>
+		<li class='wordCut' >글제목 dsafs sdfs sdfs  sdf sdfsd sdf  sdfsa sdfasddsfasfdfsfasdf </li> <!-- 제목이 길면 아래 제목줄로 넘어가버림 -> wordcut+overflow속성-->
+		<li>홍길동</li>
+		<li>등록일</li>
+		<li>조회수</li>
+		<li><input type="checkbox" name="chk" value="97"/></li>
+		<li>97</li>
+		<li class='wordCut'>글제목</li>
+		<li>홍길동</li>
+		<li>등록일</li>
+		<li>조회수</li>
+		<li><input type="checkbox" name="chk" value="96"/></li>
+		<li>96</li>
+		<li class='wordCut'>글제목</li>
+		<li>홍길동</li>
+		<li>등록일</li>
+		<li>조회수</li>
+	</ul>
+</div>
+</body>
+</html>

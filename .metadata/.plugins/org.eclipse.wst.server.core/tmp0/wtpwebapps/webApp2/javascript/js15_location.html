@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// location : URL 정보를 가져오는 객체
+	document.write("protocol="+ location.protocol);
+	document.write("<br/>port="+location.port); //포트번호
+	document.write("<br/>hostname=" +location.hostname);  //도메인
+	document.write("<br/>host="+location.host); //hostname+port
+	
+	//페이지이동
+	//location.href = "http://www.nate.com"; //윗줄실행되고 이페이지로 이동함
+	//폴더내에 파일로 이동
+	//location.href ="../index.html";
+	
+	//location.reload();//현재 페이지를 다시 실행한다. :무한루프...재귀호출...
+</script>
+</body>
+</html>

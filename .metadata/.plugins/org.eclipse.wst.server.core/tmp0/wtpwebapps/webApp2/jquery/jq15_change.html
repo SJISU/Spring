@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	div{font-size:1em;}
+</style>
+<script>
+	$(function(){
+		// 컬럼명
+		var rgb =['rgb(255,0,0)','#00f','yellow','#888','pink','orange'];
+		// 컬러코드
+		var colorName= ['빨강','파랑','노랑','회색','핑크','오렌지'];
+		
+		var tag ="<select>";
+		//배열명.map
+		//					  값,index
+		colorName.map(function(i,j){
+			tag+="<option value='"+rgb[j]+"'>"+i+"</option>";
+		});
+		tag +="</select>";
+		
+		$('body').prepend(tag);
+		
+		////////////////////////////////////////////////////
+		//이벤트 대상은 select
+		$('select').change(function(){
+			$('div').css('color',$('select').val()); //$(this).val();
+		});
+		
+		$("input[type=button]").on('click',function(){
+			//이벤트가 발생한 버튼 index를 구한다
+			var idx = $('input[type=button]').index(this);
+			console.log(idx);
+			
+			//현재글자 크기
+			var nowSize =parseInt($('div').css('font-size'));
+			console.log(nowSize);
+			
+			if(idx==0){
+				$('div').css('font-size',nowSize-1+"px");
+			}else if(idx==1){
+				$('div').css('font-size','16px');
+			}else if(idx==2){
+				$('div').css('font-size',nowSize+1+"px");
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="-"/>
+<input type="button" value="0"/>
+<input type="button" value="+"/>
+<div>
+아우디는 지난해 국내에서 진행한 순수 전기 스포츠유틸리티차(SUV) '아우디 e-트론 론칭 이벤트'가 '2021년 레드닷 디자인 어워드' 브랜드&커뮤니케이션 디자인 부문에서 본상을 수상했다고 23일 밝혔다.
+아우디가 출품한 레드닷 어워드 브랜드&커뮤니케이션 디자인 부문은 비전과 브랜드 가치, 디자인 및 브랜드 커뮤니케이션, 브랜드 정체성 및 차별화에 대해 평가하는 부문이며 24명으로 구성된 전문 심사위원단의 심사를 통해 선정된다.
+아우디는 아우디의 첫 순수 전기차이자 프리미엄 전기차 모델인 e-트론의 론칭을 통해 브랜드의 비전과 가치를 전달하고, e-트론의 친환경적 가치와 지속가능성을 담은 기획과 전시공간을 통해 대중들에게 브랜드 정체성에 대한 일관적인 메시지를 전달하는데 성공했다는 평가를 받았다.
+
+</div>
+</body>
+</html>

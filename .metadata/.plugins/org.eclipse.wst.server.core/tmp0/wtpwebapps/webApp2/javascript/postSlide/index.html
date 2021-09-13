@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	function leftMove(){
+		
+	}
+	
+	function rightMove(){
+		window.scrollBy(20,0);
+	}
+	function setleftMove(){
+		
+		interval = setInterval("leftMove()",1000); //여기에서 함수를 일정한 시간마다 호출...
+		
+	}
+function setrightMove(){
+		
+		interval = setInterval("rightMove()",1000); //여기에서 함수를 일정한 시간마다 호출...
+		
+	}
+	
+</script>
+<style>
+	ul,li{
+		margin:0; padding:0;
+		list-style-type:none;
+	}
+	
+	#container{
+		
+		float:left;		
+		overflow-x:hidden; 
+		height:118px;
+		padding:0px;	
+		width:860px;	
+	}
+	div>div{
+		width:1650px;	
+	}
+	button{
+		height:114px;
+	}
+	img{
+		height:114px;
+	}
+	div>*{
+		float:left;
+	}
+	div>ul>li{
+		float:left;
+	}
+</style>
+</head>
+<body>
+<div><button onclick="setleftMove()">◁</button></div>
+<div id="container">		
+	<div id="scrolldiv">		
+		<img src="movie01.png"/>
+		<img src="movie02.png"/>
+		<img src="movie03.png"/>
+		<img src="movie04.png"/>
+		<img src="movie05.png"/>
+		<img src="movie06.png"/>
+		<img src="movie07.png"/>
+		<img src="movie08.png"/>
+		<img src="movie09.png"/>
+		<img src="movie10.png"/>
+		<img src="movie11.png"/>
+		<img src="movie12.png"/>
+		<img src="movie13.png"/>
+		<img src="movie14.png"/>
+		<img src="movie15.png"/>
+		<img src="movie16.png"/>
+		<img src="movie17.png"/>
+		<img src="movie18.png"/>
+		<img src="movie19.png"/>
+		<img src="movie20.png"/>		
+	</div>	
+</div>
+<div><button onclick="setrightMove()">▷</button></div>	
+</body>
+</html>

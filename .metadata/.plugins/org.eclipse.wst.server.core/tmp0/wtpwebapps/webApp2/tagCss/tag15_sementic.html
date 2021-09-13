@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	ul,li{margin:0; padding:0; list-style-type:none;}
+	header{height:50px; background-color:yellow; width:800px; margin:0 auto;}
+	nav{height:40px; background-color:green;}
+	nav li{float:left; color:white; line-height:40px; width:25%; text-align:center;}
+	
+	nav>ul{width:800px; height:40px; margin:0 auto; }
+	section{
+		width:800px; margin:0 auto; height:500px; background-color:#ddd;
+		 position:relative;
+	}
+	footer{
+		height:100px; background-color:orange;
+	}
+	/* 좌표의 기준을 sectione 으로 잡고 양옆에 배너박스를 만든다// 기준점:selection 
+		1.postion을 잡아야한다 -> relativre(원래자리차지)->좌표그대로로있음....
+		2.그안쪽에 div를 만들고 position을 잡아서 양옆으로 배치한다....
+	*/
+	#leftBanner,#rightBanner{
+		width:100px; height:200px; background-color:pink; position:absolute;
+	}
+	#leftBanner{
+		left:-100px; /*현재위치를 기준으로 왼쪽으로 100px만큼 이동*/
+	}
+	#rightBanner{
+		left:800px; /*현재위치를 기준으로 오른쪽으로 800만큼 이동*/
+	}
+	
+</style>
+</head>
+<body>
+	<header></header>
+	<nav>
+		<ul>
+			<li>메뉴1</li>
+			<li>메뉴2</li>
+			<li>메뉴3</li>
+			<li>메뉴4</li>
+		</ul>
+	</nav>
+	<section>
+		<div id="leftBanner"></div>
+		<div id="rightBanner"></div>
+	</section>
+	<footer></footer>
+</body>
+</html>

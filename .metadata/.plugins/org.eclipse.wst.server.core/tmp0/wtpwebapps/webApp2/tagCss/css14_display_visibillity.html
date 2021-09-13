@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{height:100px;}
+	div:nth-of-type(1){background:yellow;}
+	div:nth-of-type(2){background:pink;}
+	div:nth-of-type(3){background:lightblue;}
+	
+	/* visivility속성 : 컨텐츠를 보여주거나 숨길수 있음. 
+				속성값 : hidden(숨김),visible(보여줌) 
+				숨김상태일때 공간을 차지하고 있음.		
+	*/
+	div:first-of-type{visibility:hidden;}
+	
+	/* display 속성 : 컨테츠를 보여주거나 숨길수 있음.
+			  속성값 : none(숨김), block(보여주기)
+			  숨김상태일때 공간을 차지하지 않음.
+		      visivility속성과는 다르게 숨김을하면 원래자기자리가 없어진다	  ex)사이트의 팝업창
+	*/
+	div:last-of-type{display:none;}
+	
+	 img{height:0px;} /*높이를0으로 만들어서 이미지 숨김*/
+	
+</style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<img src="../img/flower3.jpg"/>
+</body>
+</html>

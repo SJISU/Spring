@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#map{
+		width:100%;height:700px;border:1px solid gray; 
+	}
+</style>
+<!-- 구글맵을 사용하기 위해서는 구글에서 제공하는 자바스크립트api가 필요하다. -->
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZO3MrykFpNpemqO2zPtG5M9ADUXSoApw&callback=initMap">
+</script>
+<script>
+	//https://cloud.google.com/maps-platform/
+	//https://maps.googleapis.com = https://developers.google.com/maps/
+	
+	//위도,경도
+	var latitude = 37.5729503;
+	var longitude = 126.9793578;
+	
+	function initMap(){ //initmap 을쓰면 자동으로 호출이 됨
+		//지도의 중심을 위도경도 객체를 이용하여 구한다..
+		var myCenter = new google.maps.LatLng(latitude,longitude);
+		
+		//지도를 그릴때 필요한 기타정보를 JSON형식의 데이터로 생성한다.
+		var mapProperty = {
+				center : myCenter,
+				zoom : 14,// 0~21까지의 값을 사용한다. 숫자가 클수록 확대된다.
+				mapTypeId : google.maps.MapTypeId.ROADMAP //지도종류 (ROADMAP, HYBRID,STEELITE,TERRAIN)
+		};
+		//                               지도를 표시할곳 : id="map"인 div,  맵옵션
+		var map = new google.maps.Map(document.getElementById("map"),mapProperty);
+		
+		//마카표시
+		var marker = new google.maps.Marker({
+			position:myCenter ,//마커의위치
+			map : map, //마커를 표시할 맵, 위에서 선언한 var map을 말하는것
+			title:'마커에 표시될 내용',//마커에 표시될 내영
+			icon :'gmap_pin.png' //마커로 표시할 이미지
+			
+		});
+		
+				
+		//마커 클릭시 표시할 내용만들기
+		var information = "위도:"+latitude+", 경도:"+longitude;
+			information+="<br/><img src='../../img/pang.gif' width='100' height='40'/>";
+		//팝업대화상자
+		var info = new google.maps.InfoWindow({content:information}); //내용은 information
+			
+		//마커를 이벤트 등록 				이벤트객체  이벤트종류						     지도객체 마커객체
+		google.maps.event.addListener(marker,"mouseover",function(){info.open(map,marker)});
+		
+		//반경표시
+		var myCircle = new google.maps.Circle({
+			center:myCenter, //반경의 중심
+			radius:1000, //반경 1000m ,m단위
+			strokeColor:'#0f0', //반경선의 색상
+			strokeOpacity:0.5,//선의 투명도, 0~1사이의 값 
+			strokeWidth:3, //반경선의 두께 
+			fillColor:'#00f',//반경내의 배경색
+			fillOpacity:0.3 //배경의 투명도
+		});
+		
+		//지도에셋팅
+		myCircle.setMap(map);
+	}
+	
+</script>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html>

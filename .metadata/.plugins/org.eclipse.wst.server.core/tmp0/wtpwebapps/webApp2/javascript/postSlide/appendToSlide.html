@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	#main{
+		width:800px;height:114px; overflow:hidden;
+	}
+	#imgList{
+		width:2000px;height:114px;overflow:hidden;
+	}
+</style>
+<script>
+	$(function(){
+		var tag ="";
+		for(var i=1; i<=20; i++){
+			tag+="<a href='#'><img src='movie"
+			if(i<10){
+				tag+="0"+i;
+			}else{
+				tag+=i;
+			}
+			tag+=".png'/></a>"
+		}
+		$('#imgList').append(tag);
+		
+		
+		//이미지작성이끝나고나서 처음사진을 맨뒤로 0.2.초간격으로 보낸다
+		setInterval('movieMove()',200);
+	});
+	
+	//appendTo가 일정한 시간간격으로 첫번재에 있는 이미지를 뒤로 보낸다	
+	function movieMove(){
+		$('#imgList>a').first().appendTo('#imgList');	
+	}
+</script>
+</head>
+<body>
+<div id='main'>
+	<div id="imgList"></div>
+</div>
+</body>
+</html>

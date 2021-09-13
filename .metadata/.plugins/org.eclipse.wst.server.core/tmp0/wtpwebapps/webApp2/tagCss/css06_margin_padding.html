@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img, div{
+		width:150px; 
+		height:150px;
+		border : 1px solid red;
+	}
+	/*
+		여백확보
+		margin : margin-left,margin-right,margin-top,margin-bittom - 바깥쪽 여백확보
+		padding : padding-left,padding-right,padding-top,padding-bottom - 안쪽 여백확보
+
+	*/
+	img{ 
+		margin-right:10px; 
+		margin: 50px 30px 0px 0;
+		margin: 100px;
+	}	
+	div{
+		padding:50px 30px;
+		
+	}
+	
+	h1{
+		background-color:pink; margin:0;  /*h태그는 기본적으로 margin을 가지고 있다*/
+	}
+	ul{
+		background-color:orange;
+		
+		padding-left:0;	/*주황색부분이랑 점이 없어져버림*/	 
+	
+		border : 1px solid blue; overflow: auto; /* overflow: auto; 컨텐츠를 벗어나도 사이즈조절*/
+		
+		 
+		 /*height:100px;  /*높이 설정하면 주황색 나옴*/
+	 
+	 }
+	
+	li{
+		background-color:#ddd; 
+		float:left; /*2에대한 점이 들어옴, 스톡이 컨텐츠 내용만큼 줄어듬..주황색은여전히보이지않음..->정렬하면 공간이 빠져나옴*/
+					/* 정렬하면 li를 담고있는 ul의 높이가 0 이됨*/
+					/* 정렬하하고나서 li가 ul을 벗어난거인--> overflow: auto; */
+					
+					
+	}
+	
+</style>
+</head>
+<body>
+<img src="../img/campus.jpg"/><img src="../img/flower3.jpg"/><img src="../img/flower1.jpg"/>글은 어떨까?
+<div>sdfadf</div>
+<h1>여백확보:margin, padding</h1>
+<div>첫번째</div>
+<div>두번째</div>
+<div>세번째</div>
+<ul>
+	<li>11111111111111111</li>
+	<li>22222222222222222</li>
+</ul>
+<div>
+<b style="clear:left">글자를 표시</b> <!-- ul태그와 공간이 겹쳐져 있음 -->
+</div>
+</body>
+</html>

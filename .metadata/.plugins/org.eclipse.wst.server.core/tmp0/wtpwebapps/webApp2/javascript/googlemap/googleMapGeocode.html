@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   #g, #geoMap{height:800px; position:relative; border: 1px solid gray;}
+   #geocodeSearch{position:absolute; width:400px; top:50px; left:400px; z-index:1;}
+</style>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiyi8IBKuUJnY0RccI6KvVWJslar5cPWg&callback=initMap"></script>
+<script>
+   //위도,경도
+   var latitude;
+   var longitude;
+   
+   var nameGeo; //지명
+   var addr;//url주소
+   var geoImg;
+   
+   function setMapReset(){ //검색할 지명,url,이미지 배열
+	   latitude = 37.5729503;
+	   longitude = 126.9793578;
+	   
+	   nameGeo = ['서울 선유도','서울 뚝섬','서울 잠실종합운동장','서울 시청']; //지명
+	   addr = ['http://www.nate.com','https://www.naver.com','https://www.daum.net','https://www.seoul.go.kr']; //url주소
+	   geoImg = ['../../img/flower1.jpg','../../img/flower2.jfif','../../img/flower3.jpg','../../img/pang.gif']; //image
+   }
+   
+   var map;
+   var geoCoder;
+   
+   function initMap(){ 
+	   
+	  setMapReset();
+	   
+      var myCenter = new google.maps.LatLng(latitude,longitude);
+      var option = {
+            center : myCenter,
+              zoom : 12,
+              mapTypeId : google.maps.MapTypeId.ROADMAP //지도종류 
+      };
+     
+	//                    지도를 표시할곳 :                          id="geoMap"인 div,  맵옵션
+     map = new google.maps.Map(document.getElementById("geoMap"), option);        
+      
+     geoCoder = new google.maps.Geocoder();//geocode객체
+      
+     for(var i=0; i<nameGeo.length; i++){
+    	  //			지명,주소,해당이미지
+    	 setMapPosition(nameGeo[i],addr[i],geoImg[i]);
+     }
+   }//initMap
+   
+   //geocode를 구하여 지도에 셋팅하는 함수
+   //						지명   url   사용할이미지
+   function setMapPosition(name2,addr2,geoImg2){
+	   // 지명을 이용하여 마커,대화상자를 geoCorder객체에 표시
+	   //       geocode 함수
+	   geoCoder.geocode({'address':name2},//마커를 표시핳 주소 :name2
+	   		function(results,status){//status는 지명이잇나없나...results에는 위도경도등의정보가 내장되어있음.....
+		   		if(status=='OK'){//지명이존재한다
+		   			
+		   			//현재지명의 위치를 지도의 가운데로 셋팅하기 : 지도의 중앙을 name2의 위치로 옮길것 이다
+		   			//			위도,경도
+		   			//map.setCenter();//results에 내장되어있는값을 사용
+		   			//console.log(results)
+		   			map.setCenter(results[0].geometry.location);
+		   			
+		   			//마커표시
+		   			var marker = new google.maps.Marker({
+		   				map:map,
+		   				icon:'gmap_pin.png',
+		   				title:results[0]['formatted_address'], //마커에 마우스 오버를 하면 주소가표시된다..
+		   				position : results[0].geometry.location
+		   			});
+		   			
+		   			//대화상자 : 위도,경도,이미지 표시 -> 클릭하면  url주소로 이동하기,주소도 찍기
+		   			//위도
+					var la = results[0]['geometry']['location']['lat']();  //표기법의차이		   		
+					//경도
+					var lo = results[0]['geometry']['location']['lng']();
+					
+					var popMsg = "위도:"+la+"<br/>경도:"+lo+"<br/>";
+					 	popMsg += "주소:"+results[0]['formatted_address']+'<br/>';
+					 	if(addr2!=""){
+					 		popMsg += "<a href='"+addr2+"'><img src='"+geoImg2+"' width='100' height='40' /></a>";
+	   					}
+					var info = new google.maps.InfoWindow({content:popMsg});
+					
+					google.maps.event.addListener(marker,'click',function(){info.open(map,marker)});
+		   			
+		   		}else{
+		   			console.log("존재하지 않는 지명입니다.");
+		   		}//if문
+	   		}//function	   
+	   );//geocoder	  
+   }//function setMapPosition()
+   
+   function mapSearch(){
+	   //name속성의값이 필요없음 -->id만 있으면충분
+	   var searchName = document.getElementById("address").value; //지명
+	   if(searchName==""){
+	   		alert("검색할 지명을 입력후 사용하세요...");
+	   		return; //리턴을 만나면 중단됨....
+	   }
+	   setMapPosition(searchName,"","");
+   }
+   
+   </script>
+</head>
+<body>
+<div id="g">
+   <div id="geocodeSearch">
+      <input type="text" id="address" value="신촌역"/>
+      <input type = "button" value = "Search" onclick="mapSearch()"/>
+   </div>
+   <div id="geoMap"></div>
+</div>
+</body>
+</html>   

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	ul,li{margin:0 auto;padding:0;list-style-type:none;height:40px; line-height:40px;text-align:center;}
+	.container{
+		width:1500px; margin:0 auto;
+	}
+	 #titleList>li{margin:0 auto;float:left; height:40px; line-height:40px; border-top:3px solid #ddd;width:15%;}
+	 
+	 div>div{ /*GIRLSDAILY*/
+	 	margin:0 auto;
+	 	font-size:4em;
+	 	height:300px; line-height:300px;
+	 	text-align:center;
+	 }	 
+	 .submenu{
+	 	width:150px;
+	 	border:1px solid #ddd;	 
+	 	display:none;	
+	 	position:absolute;
+	 }	 
+</style>
+<script>
+	
+	$(()=>{	
+		var x; 
+		var y;
+		$(document).mousemove(function(e){
+			x = e.pageX;
+			y = e.pageY;	
+			
+		});		
+		$('#titleList>li:first').hover(function(){			
+			$('#outersubmenu').css('display','block').css('left',x+'px').css('top',y+'px');
+		},function(){
+			$('#outersubmenu').css('display','none');
+		});
+		
+		$('#titleList>li').eq(1).hover(function(){
+			$('#topsubmenu').css('display','block').css('left',x+'px').css('top',y+'px');
+		},function(){
+			$('#topsubmenu').css('display','none');
+		});
+		
+		$('#titleList>li').eq(2).hover(function(){
+			$('#dresssubmenu').css('display','block').css('left',x+'px').css('top',y+'px');
+		},function(){
+			$('#dresssubmenu').css('display','none');
+		});
+		
+		$('#titleList>li').eq(3).hover(function(){
+			$('#bottommenu').css('display','block').css('left',x+'px').css('top',y+'px');
+		},function(){
+			$('#bottommenu').css('display','none');
+		});
+		
+		$('#titleList>li').eq(4).hover(function(){
+			$('#summermenu').css('display','block').css('left',x+'px').css('top',y+'px');
+		},function(){
+			$('#summermenu').css('display','none');
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<div><label>GIRLSDAILY</label></div>
+	<ul id="titleList">
+		<li>OUTER</li>			
+		<li>TOP</li>
+		<li>DRESS</li>
+		<li>BOTTOM</li>
+		<li>SUMMER</li>
+	</ul>
+</div>
+
+<div id="outersubmenu" class="submenu" >
+	<ul >
+		<li>가디건</li>
+		<li>자켓&점퍼</li>
+		<li>베스트</li>
+		<li>코트</li>
+		<li>세일</li>
+	</ul>
+</div>
+<div id="topsubmenu" class="submenu">
+	<ul >
+		<li>tee</li>
+		<li>Cami</li>
+		<li>Knit</li>
+		<li>Shirt&Blouse</li>		
+	</ul>
+</div>
+<div id="dresssubmenu" class="submenu">
+	<ul >
+		<li>All</li>
+		<li>바캉스룩</li>
+		<li>Set</li>
+	</ul>
+</div>
+<div id="bottommenu" class="submenu">
+	<ul >
+		<li>레깅스</li>
+		<li>힐링투엘브</li>
+		<li>히든벤딩시리즈</li>
+		<li>스커트</li>
+		<li>팬츠</li>
+	</ul>
+</div>
+<div id="summermenu" class="submenu">
+	<ul >
+		<li>HOL스웝웨어</li>
+		<li>at22c</li>
+		<li>바캉스룩</li>
+		<li></li>
+	</ul>
+</div>
+</body>
+</html>

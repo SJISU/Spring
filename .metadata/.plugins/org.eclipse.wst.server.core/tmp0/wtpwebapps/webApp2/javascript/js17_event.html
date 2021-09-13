@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스이벤트, 키이벤트</title>
+<style>
+	#d1{
+		height:200px;
+		background-color:pink;		
+		padding:50px;
+	}
+	#d1>div{
+		height:100px;
+		background-color:lightblue;		
+		padding:50px;		
+	}
+	#d1 h1{
+		background-color:orange;		
+	}
+</style>
+<script>
+/*
+ 	*마우스이벤트
+	onmouseover,onmouseout : 이벤트객체 내부의 각 태그마다 이벤트가 발생한다.
+	
+	onmouseenter : over
+	onmouseleave : out 이벤트객체 내부의 각 태그는 이벤트가 발생하지 않는다.
+	
+	onmousedown : 마우스버튼이 눌러졋을때
+	onmouseup : 눌렀던 마우스버튼이 올라올때
+	onmousemove : 마우스의 포인터가 움직일때
+	
+	onfocus : 객체에 커서가 들어가면
+	onblur : 객체에서 커서가 나가면
+	
+	*form이벤트
+	onsubmit : submit버튼을 눌럿을때
+	onreset : form을 초기화
+		
+	*키이벤트
+	onkeydown : 누른상태
+	onkeypress : 누른상태
+	onkeyup : 누른후 놓을때
+	//추가설명.....
+	onkeydown - 모든 키를 눌렀을때 (shift, alt, control, capslock 등의 키도 모두 인식한다. 단 한영변환, 한자 등의 특수키는 인식못함
+	onkeyup - 모든 키를 눌렀다 땠을때 (onkeydown에서 인식하는 키들을 인식)
+	onkeypress - 실제로 글자가 써질때 (shift, enter 같은 키는 인식하지 못한다)
+	
+	onchange : value의 값이 변경되엇을때 일어나는 이벤트
+ 
+	onload
+	onresize : window(화면)의 크기가 변경되면 발생한다.
+ 
+ */
+	var cnt=0;
+	function mouseOverTest(){
+		//마우스 오버될 때마다 카운드
+		document.getElementById("view").innerHTML = "<h1>"+ ++cnt + "</h1>";
+	}
+	
+	var count=0;
+	function mouseOutTest(){
+		document.getElementById("view2").innerHTML = "<h1>"+ ++count + "</h1>";
+	}
+	
+	function cursorTest(id){ //커서가 들어오면 호출되는 함수 -> 어떨때는 username ,userid
+		id.style.fontSize="3em";
+		id.style.backgroundColor = "#ddd";		
+	}
+	function cursorTest2(blur){
+		blur.style.fontSize="1em";
+		
+	}
+	
+	//type="button"이 submit 기능을 하도록설정
+	function formCheck(){ 
+		if(document.frm.userid.value==""){ //document.frm.userid.value :userid에 있는 value값 ->  form의 id를 사용하여
+			alert("아이디를 입력하세요...");
+			return false;
+		}
+		if(document.getElementById("username".value=="")){ // 계층구조없이 바로 value값 가져오는것
+			alert("비밀번호를 입력하세요...");
+			return false; //함수 실행을 종료시킨다.
+		}
+		//두개의 데이터가 다있어서 return을 만나지않고 내려왓을때 submit이 발생행야한다
+		//javascript에서 submit발생시킨다
+		document.getElementById(frm).submit(); // 1.다이렉트로 가는것
+		//document.frm.submit(); //2.바디안의 form으로
+	}
+	
+	//userid에는 영문자만 입력되도록 설정	// 65~90 97~122
+	function keyCheck(){ //백스페이스는 8번이라서 인식이안됨 -> 지워지지않음
+		//방금입력된 key의 코드를 구하면
+		var key = event.keyCode; //event의내장함수를이용하여 코드값을 가져온다
+		if(!(key>=65 && key<=90 || key>=97 && key<=122)){ //영문자
+			//영문자외의 글자가 입력됐을때 -> 입력값을 취소
+			event.returnValue = false;
+		}
+	}
+	
+	function dataChange(){
+		console.log("데이터 바뀜....");
+	}
+	
+	//function winSize(){ //창의크기가 바뀌면 호출된다
+	//	console.log("창의 크기가 변경됨....")		
+	//}
+	
+	function winSize(){ //창의크기가 바뀌면 호출된다
+		console.log("창의 크기가 변경됨....")		
+		self.resizeTo(800,800); //사이즈조절안되게
+	}
+	window.resizeTo(800,800); //사이즈조절안되게
+</script>
+</head>
+<body onresize="winSize()">
+<div>
+<form name="frm" id="frm" method="get" action="test.jsp">
+	<input type="text" name="userid" id="userid" onfocus="cursorTest(this)" onblur="cursorTest2(this)" onkeydown="keyCheck()"/><br/>
+	<input type="text" name="username" id="username" onfocus="cursorTest(this)" onblur="cursorTest2(this)"
+	onchange="dataChange()"/><br/>	
+	
+	<input type="button" value="클릭button" onclick="formCheck()"/><br/> <!-- 아래세개와다르다 ,submit기능을안함 -->
+	
+	<input type="submit" value="submit"/><br/>
+	<input type="image" src="../img/flower3.jpg"/>
+	<button>등록</button>
+	
+</form>
+</div>
+
+<!-- <div id="d1" onmouseover="mouseOverTest()" onmouseout="mouseOutTest()">  반복적으로  -->
+<div id="d1" onmouseenter="mouseOverTest()" onmouseleave="mouseOutTest()"
+			 onmousedown="this.style.backgroundColor='yellow'">												
+	<div id="d2">
+		<h1>Mouseover, Mouseout 테스트</h1>
+	</div>
+</div>
+<div id="view"></div>
+<div id="view2"></div>
+</body>
+</html>

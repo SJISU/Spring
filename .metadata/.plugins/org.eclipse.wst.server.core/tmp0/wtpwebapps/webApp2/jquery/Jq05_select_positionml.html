@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>위치선택자</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(function(){
+		//위치선택자
+		
+		$("#menu>li:first").css("color","red");//첫번째 있는 객체 선택 :first //메뉴의 자손li중에 첫번째
+ 		$('#menu>li:last').css("color","blue");//마지막에 있는 객체 : last
+ 		$('#menu>li:even').css("background-color","pink");//(index기준)짝수번째 객체 선택 :even //index기준 -> 0,2
+ 		$('#menu>li:odd').css("background-color","lightblue"); //(index기준)홀수번째 객체 선택 :odd
+	
+		$('#menu>li:nth-last-of-type(3)').css('font-size','2em'); //뒤에서 n번째 객체 선택 : nth-last-of-type(n)
+		$('#menu>li:nth-child(2n)').css('color','green'); //x의배수의 위치객체선택 : nth-child(xn)
+		
+		//li의 부모중 자식이 1개인 li객체를 선택 : only-child 
+		$('li:only-child').css('background-color','#ddd').css('border','1px solid red');
+		$('li').parent().css('border','1px solid orange');
+		
+		//index를 이용한 선택자
+		$("#menu li").slice(3).css('font-size','3em').css('font-weight','bold'); //index가 n이후인 객체를 선택한다. : slice(n)		
+		$('#menu li').eq(2).css('font-size','4em');//index가 n번째인것 선택 : eq(n)
+		
+		//			less then < : 작다
+		$('#menu li:lt(4)').css('background-color','yellow'); //index가 n이전의 객체를 선택:lt(n) 
+		//			great then
+		$('#menu li:gt(4)').css('background-color','cyan');//index가 n이후의 객체를 선택:gt(n) 
+	});
+</script>
+</head>
+<body>
+<ul id="menu">
+	<li>html/css</li>
+	<li>자바스크립트</li>
+	<li>jquery</li>
+	<li>Ajax</li>
+	<li>Jsp:java server page</li>
+	<li>Spring</li>
+	<li>Mybatis</li>
+</ul>
+<ul>
+	<li>위치 선택자</li>
+</ul>
+</body>
+</html>

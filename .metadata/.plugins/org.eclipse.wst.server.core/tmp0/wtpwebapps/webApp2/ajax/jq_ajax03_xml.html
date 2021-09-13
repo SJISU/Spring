@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	#memberList td{border:1px solid gray; width:200px;}
+</style>
+<script>
+	$(()=>{
+		$('#btn').click(()=>{
+			$.ajax({
+				url:'ajax_test.xml',//어떤파일을 가져올것인지
+				dataType:'xml',
+				success:function(result){//정보제대로 받아오면 suncess의 함수가 실행됨-> 정보가 function의 매개변수 result에담긴다
+					//정보들은 태그로 묶여진 상태로 result에 담겨져 있음
+					//find() 함수를 이용하여 태그의 정보를 얻어온다.
+					if($(result).find('record').length>0){//회원이 있으면
+						//유저한명의정보를가져와서 이름,전화번호,주소를 
+						// 데이터가들어오면반복문-> 행의수만큼
+						$(result).find('record').each(function(){//'record'만큼반복 ->3번반복
+							//명령어를 찾는다:result태그 -> this(첫번째record태그)
+							var username = $(this).find('username').text();
+							var tel = $(this).find('tel').text();
+							var addr = $(this).find('addr').text();
+							
+							//html태그로만들기
+							var tag ="<tr><td>"+username+"</td><td>"+tel+"</td><td>"+addr+"</td></tr>";
+							//#멤버리스트에추가
+							$('#memberList').append(tag);
+							
+						}); 
+						
+					}
+					
+					
+				},
+				error:function(request){
+					cosole.log('xml파일 가져오기 실패');
+					console.log(request.responseTest);
+				}
+					
+			});
+		});
+		
+	});
+</script>
+</head>
+<body>
+<button id='btn'>ajax로 xml정보 비동기식으로 가져오기</button> <!-- btn을 클릭하면 ajax구현 -->
+<hr/>
+<table id="memberList"></table>
+</body>
+</html>

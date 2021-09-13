@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+	#banner img{width:500px;height:400px;}
+	#banner{width:500px;height:400px;border:1px solid gray; margin:0 auto; position:relative; overflow:hidden;} /*banner안의 속성들의 기준을 banner로 잡게 해준다*/
+	
+	/* 이미지목록 */
+	#bannerImg{width:3000px;}
+	
+	/* 설명서 */
+	#slideTxt{position:absolute; left:-450px; top:80px; width:400px; height:250px;
+			  border:1px solid red; color:red;} /* 얘네를 감싸고 있는 것을 벗어나야한다  */
+	#slideTxt>div{position:absolute; left:0px; top:0px;width:400px; height:250px;} /*겹치게해주기위해설정*/
+	
+	/* 컨트롤러 */
+	#controll{position:absolute; left:80px; top:350px;}
+	#controll>div{background-image:url(../img/point_button.png); width:15px;height:15px; float:left; margin:0 15px;}
+	
+	
+</style>
+<script>
+	
+	function slideImage(i){
+		//이미지
+		$("#bannerImg").animate({marginLeft:-(i*500)+"px"},2000);
+		
+		//이미지에대한 설명
+		$('#slideTxt>div').animate({marginLeft:"0px"},0); //원상태로돌리기
+		$('#slideTxt>div').eq(i).delay(1000).animate({marginLeft:"500px"},2000);
+		
+		//컨트롤러
+		$('#controll>div').css('background-position','0px 0px')//원상태로돌리기
+		$('#controll>div').eq(i).css('background-position','0px -30px');
+	}
+
+	$(function(){
+		var imgName = ['flower1.jpg','flower2.jfif','flower3.jpg','pang.gif','j1.png','j2.png'];			
+		var imgTag = "";
+		
+		imgName.map(function(value,idx){
+			imgTag+="<img src='../img/"+value+"'/>";
+		});
+		$('#bannerImg').append(imgTag);
+		
+		//처음에 슬라이드 되기 위한 난수생성  0~5 정수(난수(큰수-작은수+1))+작은
+		var idx = parseInt(Math.random()*6);
+		$('#view').html(idx);
+		
+		slideImage(idx); // 자스함수실행
+		/////////////////////////////////////
+		$('#controll>div').click(function(){
+			slideImage($('#controll>div').index(this));
+		});
+		
+	});
+</script>
+</head>
+<body>
+<div id="view"></div>
+<div id='banner'>
+	<!-- 배너 이미지 -->
+	<div id="bannerImg"></div>
+	<!-- 배너 설명 -->
+	<div id="slideTxt">
+		<div>
+			<h1>첫번째이미지</h1>
+			<h2>첫번째 설명</h2>
+			<p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
+		</div>
+		<div>
+			<h1>두번째이미지</h1>
+			<h2>첫번째 설명</h2>
+			<p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
+		</div>
+		<div>
+			<h1>세번째이미지</h1>
+			<h2>첫번째 설명</h2>
+			<p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
+		</div>
+		<div>
+			<h1>네번째이미지</h1>
+			<h2>첫번째 설명</h2>
+			<p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
+		</div>
+		<div>
+			<h1>다섯번째이미지</h1>
+			<h2>첫번째 설명</h2>
+			<p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
+		</div>
+		<div>
+			<h1>여섯번째이미지</h1>
+			<h2>첫번째 설명</h2>
+			<p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</p>
+		</div>
+	</div>
+	<!-- controller -->
+	<div id="controll">
+		<div></div><div></div><div></div><div></div><div></div><div></div>
+	</div>
+	<p>
+</div>
+</body>
+</html>

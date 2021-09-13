@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   ul, li{margin:0;padding:0;list-style-type:none;}
+   header{height:50px;background-color:yellow;width:800px;margin:0 auto;}
+   nav{height:40px;background-color:green;}
+   nav li{float:left;color:white;line-height:40px; width:25%;text-align:center;}
+   nav>ul{width:800px; height:40px;margin:0 auto;}
+   section{
+      width:800px; margin:0 auto; height:2000px; background-color:#ddd;
+      position:relative;
+   }
+   footer{
+      height:100px; background-color:orange;
+   }
+   #leftBanner, #rightBanner{
+      width:100px; height:200px; background-color:pink; position:absolute;
+   }
+   
+   #leftBanner{
+      left:-100px;
+   }
+   #rightBanner{
+      left:800px;
+   }
+   
+</style>
+<script>
+   window.onscroll = logScroll;
+   
+   var divLeft, divRight;
+   function logScroll() {
+     
+      document.getElementById("leftBanner").style.top=0;
+      document.getElementById("rightBanner").style.top=0;
+      
+    
+      var leftbanner = document.getElementById("leftBanner");
+      var rightbanner = document.getElementById("rightBanner");
+      
+      
+      divLeft = parseInt(leftbanner.style.top); 
+      divRight = parseInt(rightbanner.style.top);
+      
+      var ly = window.scrollY + divLeft
+      var ry = window.scrollY + divRight
+      
+      leftbanner.style.top = ly+"px";
+      rightbanner.style.top = ry+"px";
+    
+   }
+</script>
+</head>
+<body>
+   <header></header>
+   <nav>
+      <ul>
+         <li>메뉴1</li>
+         <li>메뉴2</li>
+         <li>메뉴3</li>
+         <li>메뉴4</li>
+      </ul>
+   </nav>
+   <section>
+      <div id="leftBanner"></div>
+      <div id="rightBanner"></div>
+   </section>
+   <footer></footer>
+</body>
+</html>
