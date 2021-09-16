@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
 <typeInfoHistroy>
-    <typeInfo handle="=webMVC/src\/main\/java&lt;com.bitcamp.home{DBConnection.java[DBConnection" modifiers="1" timestamp="1631069828616"/>
-    <typeInfo handle="=webMVC/src\/main\/java&lt;com.bitcamp.home{CommandService.java[CommandService" modifiers="513" timestamp="1630996314690"/>
+    <typeInfo handle="=WebSpring01/C:\/Program Files\/Java\/jdk-14.0.2\/lib\/jrt-fs.jar`jdk.internal.vm.compiler=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/14\/docs\/api\/=/&lt;org.graalvm.compiler.nodes(NamedLocationIdentity$DB.class[DB" modifiers="8" timestamp="1622623240362"/>
+    <typeInfo handle="=WebSpring01/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitcamp.myapp{DBConnection.java[DBConnection" modifiers="1" timestamp="1631586918082"/>
+    <typeInfo handle="=WebSpring01/C:\/Program Files\/Java\/jdk-14.0.2\/lib\/jrt-fs.jar`java.desktop=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/14\/docs\/api\/=/&lt;javax.imageio.spi(RegisterableService.class[RegisterableService" modifiers="1537" timestamp="1622623240362"/>
 </typeInfoHistroy>
-=======
-<typeInfoHistroy/>
->>>>>>> 2210155 (20210913)

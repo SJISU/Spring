@@ -27,6 +27,11 @@
 	
 	<context:component-scan base-package="com.bitcamp.myapp" />
 	
-	
-	
+	<!-- 오라클 드라이브, 서버위치, 계정, 비밀번호 -->
+	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <!-- beans:bean : 객체를 만든다 -->
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></beans:property> <!-- 변수 -->
+		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></beans:property>
+		<beans:property name="username" value="c##scott"></beans:property>
+		<beans:property name="password" value="tiger"></beans:property>
+	</beans:bean>
 </beans:beans>

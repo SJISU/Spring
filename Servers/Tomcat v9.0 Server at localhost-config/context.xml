@@ -14,13 +14,9 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-<<<<<<< HEAD
---><!-- The contents of this file will be loaded for each web application --><Context>
-=======
 --><!-- The contents of this file will be loaded for each web application --><Context reloadable="true">
 	
 	<ResourceLink global="jdbc/myoracle" name="jdbc/myoracle" type="javax.sql.DataSource"/>
->>>>>>> 2210155 (20210913)
 
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->

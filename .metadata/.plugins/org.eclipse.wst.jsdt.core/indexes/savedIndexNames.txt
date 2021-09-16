@@ -1,24 +1,8 @@
-<<<<<<< HEAD
-INDEX VERSION 1.4+D:\workdpaceWeb\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1346642564.index
-3568652826.index
-2130147092.index
-495995365.index
-2742649602.index
-586724983.index
-906080729.index
-14760556.index
-1696469759.index
-1698733690.index
-3281115486.index
-2684063100.index
-=======
 INDEX VERSION 1.4+D:\workspaceSpring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+490904424.index
 3545179329.index
 3249568467.index
-490904424.index
-2877983223.index
-1510128470.index
 4031659778.index
 576071682.index
->>>>>>> 2210155 (20210913)
+1510128470.index
+2877983223.index
