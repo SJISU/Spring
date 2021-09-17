@@ -92,10 +92,12 @@ public class RegisterVO {
 		this.tel = tel;
 		
 		//전화번호 -로 분리하여 tel1, tel2, tel3에 대입한다.
+		if(tel!=null) {
 		String t[]= tel.split("-");
 		tel1 = t[0];
 		tel2 = t[1];
 		tel3 = t[2];
+		}
 
 	}
 
@@ -123,9 +125,11 @@ public class RegisterVO {
 	public void setEmail(String email) {
 		this.email = email;
 	
+		if(email!=null) {
 		String mail[] = email.split("@");
 		emailid = mail[0];
 		domain = mail[1];
+		}
 	}
 
 	public String getZipcode() {
@@ -173,9 +177,11 @@ public class RegisterVO {
 	public void setHobbyStr(String hobbyStr) {
 		this.hobbyStr = hobbyStr;
 		
-		//문자열을 배열로 저장
-		hobby = hobbyStr.split("/");
 		
+		//문자열을 배열로 저장
+		if(hobbyStr!=null) {
+		hobby = hobbyStr.split("/");
+		}
 	}
 
 		

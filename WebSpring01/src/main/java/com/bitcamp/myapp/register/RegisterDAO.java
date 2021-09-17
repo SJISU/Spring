@@ -64,11 +64,34 @@ public class RegisterDAO extends DBConnection implements RegisterDAOImpl {
 
 	}
 
-	@Override
-	public int updateRecord(RegisterVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	 @Override
+	   public int updateRecord(RegisterVO vo) {
+	      int cnt = 0;
+	      try {
+	         dbConn();
+	         sql = "update register set tel=?, email=?, zipcode=?, addr=?, addrdetail=?, hobby=? "
+	               + " where userid=? and userpwd=?";
+	         
+	         pstmt = con.prepareStatement(sql);
+	         
+	         pstmt.setString(1, vo.getTel());
+	         pstmt.setString(2, vo.getEmail());
+	         pstmt.setString(3, vo.getZipcode());
+	         pstmt.setString(4, vo.getAddr());
+	         pstmt.setString(5, vo.getAddrdetail());
+	         pstmt.setString(6, vo.getHobbyStr());
+	         
+	         pstmt.setString(7, vo.getUserid());
+	         pstmt.setString(8, vo.getUserpwd());
+	         
+	         cnt = pstmt.executeUpdate();      
+	      }catch(Exception e) {
+	         e.printStackTrace();
+	      }finally {
+	         dbClose();
+	      }
+	      return cnt;
+	   }
 
 	@Override
 	public void loginSelect(RegisterVO vo) {

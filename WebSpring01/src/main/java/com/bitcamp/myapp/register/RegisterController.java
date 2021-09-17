@@ -96,7 +96,7 @@ public class RegisterController {
 		   mav.setViewName("redirect:/");
 		   return mav;
 	   }
-
+	   //수정폼
 	   @RequestMapping("/registerEdit")
 	   public ModelAndView registerEdit(HttpSession session) {
 		   
@@ -109,5 +109,22 @@ public class RegisterController {
 		 mav.setViewName("register/edit");
 		 return mav;
 	   }
+	   
+	   //회원정보수정
+	      @RequestMapping(value="/editOk", method=RequestMethod.POST)
+	      public ModelAndView editOk(RegisterVO regVo, HttpSession session) {
+	         ModelAndView mav = new ModelAndView();
+	         regVo.setUserid((String)session.getAttribute("logid"));
+	         int result = dao.updateRecord(regVo);
+	  
+	         //수정실패시 history, 수정성공 : 수정폼으로 이동
+	         if(result>0) {//수정
+	            mav.setViewName("redirect:registerEdit");
+	            
+	         }else {//수정실패
+	            mav.setViewName("register/editResult");
+	         }
+	         return mav;
+	      }
 }
 

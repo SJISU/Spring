@@ -16,7 +16,10 @@
       
       //회원등록 유효성 검사
       $('#regForm').submit(function(){
-         
+         if($("#userpwd").val()==""){
+        	 alert("비밀번호를 입력후 수정하세요....");
+        	 return false;
+         }
          return true;
       });
    });
