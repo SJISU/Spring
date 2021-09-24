@@ -40,7 +40,7 @@
    
 <c:forEach var="vo" items="${list}">
    <li>${vo.no}</li>
-   <li class="wordCut">${vo.subject}</li>
+   <li class="wordCut"><a href="/myapp/boardView?no=${vo.no}&nowPage=${pVo.nowPage}">${vo.subject}</a></li>
    <li>${vo.userid}</li>
    <li>${vo.writedate}</li>
    <li>${vo.hit}</li>

@@ -66,4 +66,30 @@ public class BoardDAO extends DBConnection implements BoardDAOimpl {
 		return list;
 	}
 
+	@Override
+	public void boardSelect(BoardVO vo) {
+		try {
+			dbConn();
+			sql = "select no, userid, subject, content, hit, writedate from board where no = ?";
+			pstmt= con.prepareStatement(sql);
+			pstmt.setInt(1,vo.getNo());
+		
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setNo(rs.getInt(1));
+				vo.setUserid(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setContent(rs.getString(4));
+				vo.setHit(rs.getInt(5));
+				vo.setWritedate(rs.getString(6));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		
+		
+	}
+
 }

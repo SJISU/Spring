@@ -20,4 +20,15 @@ public class BoardController {
 		return mav;
 		
 	}
+	//글내용보기
+	@RequestMapping("/boardView")
+	public ModelAndView boardView(BoardVO vo, pagingVO pVo) {
+		ModelAndView mav = new ModelAndView();
+		dao.boardSelect(vo);
+		mav.addObject("vo",vo);
+		mav.addObject("pVo",pVo);
+		mav.setViewName("board/boardView");
+		return mav;
+		
+	}
 }
