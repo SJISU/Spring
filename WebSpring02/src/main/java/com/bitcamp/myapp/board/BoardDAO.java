@@ -92,4 +92,95 @@ public class BoardDAO extends DBConnection implements BoardDAOimpl {
 		
 	}
 
+
+	//댓글쓰기
+	 //댓글쓰기
+	   @Override
+	     public int replyInsert(ReplyBoardVO replyVo) {
+	        int cnt=0;
+	        try {
+	           dbConn();
+	           sql = "insert into replyboard(num, userid, coment, no) "
+	                 + " values(replysq.nextval, ?,?,?)";
+	           pstmt = con.prepareStatement(sql);
+	           pstmt.setString(1, replyVo.getUserid());
+	           pstmt.setString(2, replyVo.getComent());
+	           pstmt.setInt(3, replyVo.getNo());
+	           
+	           cnt = pstmt.executeUpdate();
+	           
+	        }catch(Exception e) {
+	           e.printStackTrace();
+	        }finally {
+	           dbClose();
+	        }
+	        return cnt;
+	     }
+	   @Override
+	   public List<ReplyBoardVO> replyListSelect(int no) {
+	      List<ReplyBoardVO> lst = new ArrayList<ReplyBoardVO>();
+	      try {
+	         dbConn();
+	         sql= "select num, userid, coment, writedate  from replyboard "
+	               + " where no=?";
+	         pstmt = con.prepareStatement(sql);
+	         pstmt.setInt(1, no);
+	         
+	         rs = pstmt.executeQuery();
+	         while(rs.next()) {
+	            ReplyBoardVO vo = new ReplyBoardVO();
+	            vo.setNum(rs.getInt(1));
+	            vo.setUserid(rs.getString(2));
+	            vo.setComent(rs.getString(3));
+	            vo.setWritedate(rs.getString(4));
+	            lst.add(vo);
+	         }
+	      }catch(Exception e) {
+	         e.printStackTrace();
+	      }finally {
+	         dbClose();
+	      }
+	      return lst;
+	   }
+
+	@Override
+	public int replyUpdate(ReplyBoardVO replyVo) {//댓글수정 -> 작성자만고치게
+		int cnt=0;
+		try {
+			 dbConn();
+			 sql ="update replyboard set coment=? where num=? and userid=?";
+			 pstmt =con.prepareStatement(sql);
+			 pstmt.setString(1,replyVo.getComent());
+			 pstmt.setInt(2,replyVo.getNum());
+			 pstmt.setString(3,replyVo.getUserid());
+			 cnt = pstmt.executeUpdate();
+		}catch(Exception e) {
+			 e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return cnt;
+	}
+
+	@Override
+	public int replyDelete(int num, String userid) {
+	   int cnt = 0;
+	   try {
+	      dbConn();
+	      sql = "delete from replyboard where num=? and userid=?";
+	      pstmt = con.prepareStatement(sql);
+	      pstmt.setInt(1, num);
+	      pstmt.setString(2, userid);
+	      
+	      cnt = pstmt.executeUpdate();
+	   }catch(Exception e) {
+	      e.printStackTrace();
+	   }finally {
+	      dbClose();
+	   }
+	   return cnt;
+	}
+
+
+
 }
