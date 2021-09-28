@@ -24,7 +24,7 @@
 	div,body{margin:0; padding:0;}
 	a:link {text-decoration:none;}
 	a{color:#fff;}
-	#top{text-align :center; height:24px;line-height:24px;width:100%;}	
+	#top{display:flex;text-align :center; height:24px;line-height:24px;width:100%;}	
 	#logo{height:100px; text-align :center; line-height:100px;}	
 	/*메인메뉴*/
 	#menu{float:left; text-align:center; width:800px; background-color:white;  color:#fff;}
@@ -39,24 +39,20 @@
 	.imgslide{text-align:center;}
 	#bx img{width:800px;height:350px;}
 	/*게시판*/
-	h1{text-align:center;color:darkgray;}
-	#board{width:800px;height:auto;}
-	h1{width:800px;text-align:center;color:darkgray;}
+	.boardtitle>li{float:left;width:9%;}	
+	.boardtitle>li:nth-child(6n-3){width:50%; white-space:nowrap;overflow:hidden;text-overflow: ellipsis;}	
+	.boardtitle>li:nth-child(6n-1){width:12%;}
+	.paging{clear: both;}	
+	.paging{display:flex;margin: 0 auto;}	
+	.board>h1{text-align: center;}	
+	.pagination-lg{width: 34%;margin: 0 auto;padding:10px;}
+	.pagination-lg .page-link{padding: 8px; }	
+	.boardtitle>li{ border-bottom: 1px solid black;}
+	.wordCut>a{color: black;}
 	
-	#chkdiv{text-align:left;}
-	
-	
-	#board>li{float:left; width:10%; border-bottom:1px solid #ddd; height:40px;}
-    #board>li:nth-child(6n+3){width:50%;}
-    
-     .wordCut{
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-   }
-    #pagingdiv{width:800px;text-align:center;}
-    
-    
+	/*footer*/
+	footer{margin:0 auto;height:50px;line-height:50px;width:800px;background-color: #456;color:#FFF;text-align: center;}
+
 </style>
 <script>
 	$(()=>{
@@ -102,12 +98,40 @@
 		});		
 	});
 
-   
    $(()=>{
-	   $('#allChk').on('change',function(){
-	       $('#board input[type=checkbox]').prop('checked', $('#allChk').prop('checked'));
-	       
-	    });
+	   //게시물 불러오기 
+	   
+	   function boardList(){
+		   
+		   let url="/seoul/boardList";
+		   $.ajax({
+	            url:url,
+	            success:function(result){
+	               let $r=$(result);
+	               
+	               $r.each(function(idx, vo){
+	                  let tag="";
+	                  tag+="<li><input type='checkbox' id='' name='checked'></li>"
+	                  tag+="<li>"+vo.no+"</li> <li class='wordCut'><a href='list.jsp?num=1'>"+vo.subject+"</a></li>"; 
+	                  tag+="<li>"+vo.userid+"</li>";
+	                  tag+="<li>"+vo.writedate+"</li>";
+	                  tag+="<li>"+vo.hit+"</li>";
+	                  $(".boardtitle").append(tag);
+	               });
+	            }
+	         });
+	         return false;
+	   }
+   
+   
+   
+
+		$('#allchk').on('change',function(){//체인지 이벤트가 발생하면
+			$('.boardtitle input[type=checkbox]').prop('checked',$('#allchk').prop('checked'));
+	
+		}); 
+		
+		boardList();
    });
 
 </script>
@@ -116,19 +140,20 @@
 <body>
 <div id="container">
 	
-	<div id="top">
-	   <form method="post" action="<%=request.getContextPath()%>/loginOk" id="logFrm">
+	<div id="top" style="justify-content: end">
+	   <form method="post" action="<%=request.getContextPath()%>/login" id="logFrm">
+	   		 <c:if test="${ logStatus == 'Y' }">
+     			 <li>${ logname }님 <a href="/seoul/logout" style="color:#ddd">로그아웃</a></li>
+      		  </c:if>
 	   		 <c:if test="${ logStatus != 'Y' }">	   		 	
 		         <input type="text" name="userid" id="userid" placeholder="아이디"/>
 		         <input type="password" name="userpwd" id="userpwd" placeholder="비밀번호"/>
 		         <input type="submit" value="로그인"/>	
 		      </c:if>
-		      <c:if test="${ logStatus == 'Y' }">
-     			 <li>${ logname }님 <a href="/seoul/logout">로그아웃</a></li>
-      		  </c:if>
+	</form>  
 		         <a href="#" style="color:#ddd">회원가입</a>
 		         <a href="#" style="color:#ddd">고객센터</a>         
-	   </form>
+	 
 	</div>
 	
 	<div id="logo">
@@ -165,8 +190,8 @@
 	</div>
 	
 	<!-- bx슬라이더 -->		
-	<
 	
+	<div style="visibility:hidden"><</div>
 		<ul id="bx">
 			<li><img src="img/banner1.jpg" title="Seoul Music FestivalSeoul"></li>
 			<li><img src="img/banner2.jpg" title="SIBAC 2019"></li>
@@ -178,58 +203,31 @@
 		</ul>
 
 
-	<!-- 게시판 -->
-	
-		<h1>자유게시판</h1><br/>
-		<div  id="chkdiv"><input type="checkbox"  id="allChk"/>전체선택</div>
-			<ul id="board">
-				<li><input type="checkbox" /></li>
-				<li>번호</li>
-			    <li>제목</li>
-			    <li>작성자</li>
-			    <li>작성일</li>
-			    <li>조회수</li>		
-
-	
-			 	<c:forEach var="vo" items="${list}">
-					<li>${vo.no}</li>
-					<li class="wordCut"><a href="/seoul/boardView?no=${vo.no}&nowPage=${pVo.nowPage}">${vo.subject}</a></li>
-					<li>${vo.userid}</li>
-					<li>${vo.writedate}</li>
-					<li>${vo.hit}</li>
-				</c:forEach>      
-			</ul>
-<!-- 페이징 -->
-	<div>
-	<ul class="pagination pagination-lg">
-	      <!-- 이전페이지는 현재페이지가 1페이지보다 클때만 표시한다 -->
-	      <c:if test="${pVo.nowPage>1 }">
-	            <li class='page-item'><a href="/seoul/list?nowPage=${pVo.nowPage-1 }<c:if test='${pVo.searchWord!=null && pVo.searchKey!=null }'>&searchWord=${pVo.searchKey}&searchWord=${pVo.searchWord}</c:if>" class='page-link'>Prev</a>
-	         </c:if>
-	         <c:if test="${pVo.nowPage==1}">
-	            <li class='page-item'><a href="#" class='page-link'>Prev</a></li>
-	         </c:if>
-	         <!-- 시작페이지부터 5개의 페이지를 출력한다. -->
-	         <!-- 6,7,8,9,10 -->
-	         <c:forEach var="i" begin="${pVo.startPage }" end="${pVo.startPage+pVo.onePageNumCount-1 }">
-	            <!-- 출력할 페이지번호 총페이지수보다 작을때만 출력한다. -->
-	            <c:if test="${i<=pVo.totalPage}">
-	               <c:if test="${i==pVo.nowPage }">
-	                  <li class='page-item active'>
-	               </c:if>
-	               <c:if test="${i!=pVo.nowPage }">
-	                  <li class='page-item'>
-	               </c:if>
-	               <a href="/seoul/list?nowPage=${i}<c:if test='${pVo.searchWord!=null && pVo.searchKey!=null }'>&searchWord=${pVo.searchKey}&searchWord=${pVo.searchWord}</c:if>" class='page-link'>${i}</a>
-	            </c:if>
-	         </c:forEach>
-	         
-	         <!-- 다음페이지는 현재페이지가 총페이지수보다 작으면 다음페이지가 있다. -->
-	         <c:if test="${pVo.nowPage<pVo.totalPage}">
-	            <li class='page-item'><a href="/seoul/list?nowPage=${pVo.nowPage+1 }<c:if test='${pVo.searchWord!=null && pVo.searchKey!=null }'>&searchWord=${pVo.searchKey}&searchWord=${pVo.searchWord}</c:if>" class='page-link'>Next</a></li>
-	         </c:if>   
-	   </ul>
-	</div>
+	<div class="board">
+			<h1>자유게시판</h1>
+			<input type="checkbox" id="allchk"><label>전체선택</label>
+			<ul class="boardtitle">
+            <li style="height:25px"> </li>
+            
+            <li>번호</li>
+            <li>제목</li>
+            <li>작성자</li>
+            <li>작성일</li>
+            <li>조회수</li>
+                    
+         </ul>
+		<div>
+		 <ul class="pagination pagination-lg">
+		 		<li class='page-item'><a href="" class='page-link'>Prev</a></li>
+		 		<li class='page-item'><a href="" class='page-link'>1</a></li>
+		 		<li class='page-item'><a href="" class='page-link'>2</a></li>
+		 		<li class='page-item'><a href="" class='page-link'>3</a></li>
+		 		<li class='page-item'><a href="" class='page-link'>4</a></li>
+		 		<li class='page-item'><a href="" class='page-link'>5</a></li>
+		 		<li class='page-item'><a href="" class='page-link'>NEXT</a></li>
+		 
+		 </ul>
+		
+		</div><!-- boarddiv -->
+		
 </div>
-</body>
-</html>

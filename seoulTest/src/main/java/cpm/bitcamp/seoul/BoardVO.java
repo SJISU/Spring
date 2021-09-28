@@ -9,6 +9,7 @@ public class BoardVO {
 	private String writedate;
 	private int hit;
 	private String ip;
+	
 	public int getNo() {
 		return no;
 	}

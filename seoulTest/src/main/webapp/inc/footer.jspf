@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<style>
-	#bottom{width:800px; margin:0 auto; height:50px;line-height:50px;text-align :center;background-color:#456;color:#fff;}
-</style>
-<body>
-	<div id="bottom">서울특별시청 04524 서울특별시 중구 세종대로110</div>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<footer>
+			서울특별시청 04524 서울특별시 중구 세종대로 110
+		</footer>
 </body>
 </html>
