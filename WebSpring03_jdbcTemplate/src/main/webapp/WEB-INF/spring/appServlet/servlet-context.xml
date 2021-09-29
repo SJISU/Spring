@@ -35,4 +35,7 @@
 	<beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
 		<beans:property name="dataSource" ref="dataSource"></beans:property>
 	</beans:bean>
+	<!-- dao객체생성 -> 컨트롤러에서 Autowired 달고 dao에 담아줌 -->
+	<beans:bean name="dao" class="com.bitcamp.app.board.BoardDAO">
+	</beans:bean>
 </beans:beans>

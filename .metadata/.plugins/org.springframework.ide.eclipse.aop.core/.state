@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="WebSpring03_jdbcTemplate"/>
+<aop-project name="WebSpring04_fileupload"/>
 <aop-project name="WebSpring02"/>
 <aop-project name="seoulTest"/>
 <aop-project name="webSpringAjax"/>
