@@ -17,12 +17,14 @@ D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2293640
 \webSpringAjax\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\762273750.index
 \Practice\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2633643976.index
+\WebSpring05_mybatis\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1624033985.index
 \Seoul\src\main\java
-D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1578150420.index
-\WebSpring01\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3907509050.index
 \webSpringAjax\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1578150420.index
+\WebSpring01\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1295553383.index
 \WebSpring02\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2359252080.index
@@ -31,6 +33,8 @@ D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2749519
 \WebSpring03_jdbcTemplate\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3815188335.index
 \webSpringAjax\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2818927755.index
+\WebSpring05_mybatis\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1486706578.index
 \WebSpring03_jdbcTemplate\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4135861134.index

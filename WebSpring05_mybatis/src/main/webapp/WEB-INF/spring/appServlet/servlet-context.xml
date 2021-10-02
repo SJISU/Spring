@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:beans="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+   <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+   
+   <!-- Enables the Spring MVC @Controller programming model -->
+   <annotation-driven />
+
+   <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+   <resources mapping="/resources/**" location="/resources/" />
+
+   <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+   <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <beans:property name="prefix" value="/WEB-INF/views/" />
+      <beans:property name="suffix" value=".jsp" />
+   </beans:bean>
+   
+   <context:component-scan base-package="com.bitcamp.myhome" />
+   
+   <!-- 1. datasource -->
+   <beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></beans:property>
+      <beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></beans:property>
+      <beans:property name="username" value="c##scott"></beans:property>
+      <beans:property name="password" value="tiger"></beans:property>
+   </beans:bean>
+   
+   <!-- xml에 impl 인터페이스를 매핑하여 간단하게 사용하기 위함 -->
+   <!-- 2. Mybatis framework 사용을 위해 필요한 Datasource 객체, xml mapping 파일 위치를 이용해 SqlSessionFactory(xml 파일들을 관리할 수 있는 클래스) 객체를 생성 -->
+   <beans:bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <!-- 요 위에 있는 beans인 dataSource와 연결 -->
+      <beans:property name="dataSource" ref="dataSource"></beans:property>
+      <!-- mapping 주소 -->
+      <beans:property name="mapperLocations">
+         <!-- beans:list는 자바의 List컬렉션과 같은 형태로 빈즈를 만들 때 사용함 -->
+         <beans:list>
+            <!-- com.bitcamp.myhome.mapper 패키지의 모든 xml파일을 매핑함 -->
+            <beans:value>classpath:com/bitcamp/myhome/mapper/*.xml</beans:value>
+            <!-- 경로가 더 있으면 value 설정 더 하면 됨 -->
+         </beans:list>
+      </beans:property>
+   </beans:bean>
+   
+   <!-- 3. Mybatis 객체를 생성 => 데이터베이스를 쓸 때, 여기서 정의한 sqlSession을 사용하면 요 위의 매퍼를 통해서 dataSource까지 거슬러 올라가게 된다. -->
+   <beans:bean name="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+      <beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>
+   </beans:bean>
+   
+   <!-- 
+      매퍼의 작성은
+      https://mybatis.org/mybatis-3/ko/index.html
+      의 한글 문서를 참조!
+    -->
+   
+</beans:beans>
