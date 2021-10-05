@@ -5,6 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	function delCheck(){
+		if(confirm("글을 삭제하시겠습니까?")){
+			location.href="/myhome/boardDel?no=${vo.no}";
+		}
+	}
+</script>
 </head>
 <body>
 <h1>글내용보기</h1>
@@ -16,6 +23,6 @@
 	<li>글내용<br/>${vo.content}</li>
 </ul>
 <a href="/myhome/edit?no=${vo.no}">수정</a>
-삭제
+<a href="javascript:delCheck()">삭제</a>
 </body>
 </html>

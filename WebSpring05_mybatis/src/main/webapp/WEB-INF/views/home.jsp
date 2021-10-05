@@ -10,6 +10,7 @@
 	홈 ${username} 
 	<a href="/myhome/logout">로그아웃</a>
 	<a href="/myhome/list">게시판</a>
+	<a href="/myhome/transactionTest">트랜잭션테스트</a>
 </h1>
 <form method="post" action="/myhome/loginOk">
 	아이디 : <input type="text" name="userid"  />

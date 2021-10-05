@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:beans="http://www.springframework.org/schema/beans"
-   xmlns:context="http://www.springframework.org/schema/context"
-   xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
-      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-      http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
    <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
    
@@ -57,5 +59,10 @@
       https://mybatis.org/mybatis-3/ko/index.html
       의 한글 문서를 참조!
     -->
+   
+   <!-- transaction 객체 생성 -->
+   <beans:bean id="transasctionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   		<beans:constructor-arg name="dataSource" ref="dataSource"></beans:constructor-arg>
+   </beans:bean>
    
 </beans:beans>
