@@ -3,6 +3,7 @@
 <aop-project name="WebSpring03_jdbcTemplate"/>
 <aop-project name="WebSpring05_mybatis"/>
 <aop-project name="WebSpring04_fileupload"/>
+<aop-project name="WebSpringOracleMybatisXml"/>
 <aop-project name="WebSpring02"/>
 <aop-project name="seoulTest"/>
 <aop-project name="webSpringAjax"/>

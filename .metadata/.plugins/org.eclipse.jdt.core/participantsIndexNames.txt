@@ -3,6 +3,8 @@ D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3044528
 \seoulTest\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\62885458.index
 \SeoulPage\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2086215098.index
+\WebSpringOracleMybatisXml\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\325836006.index
 \seoul\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2846170669.index
@@ -15,16 +17,16 @@ D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2455890
 \WebSpring04_fileupload\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2293640589.index
 \webSpringAjax\src\main\java
-D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\762273750.index
-\Practice\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2633643976.index
 \WebSpring05_mybatis\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\762273750.index
+\Practice\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1624033985.index
 \Seoul\src\main\java
-D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3907509050.index
-\webSpringAjax\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1578150420.index
 \WebSpring01\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3907509050.index
+\webSpringAjax\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1295553383.index
 \WebSpring02\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2359252080.index
@@ -37,6 +39,8 @@ D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2818927
 \WebSpring05_mybatis\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1486706578.index
 \WebSpring03_jdbcTemplate\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2455315208.index
+\WebSpringOracleMybatisXml\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4135861134.index
 \webSpringAjax\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2285635072.index
@@ -55,3 +59,5 @@ D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2650158
 \WebSpring03_jdbcTemplate\src\main\java
 D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2707146344.index
 \seoulTest\src\main\java
+D:\workspaceSpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3814670305.index
+\WebSpringOracleMybatisXml\src\main\java
