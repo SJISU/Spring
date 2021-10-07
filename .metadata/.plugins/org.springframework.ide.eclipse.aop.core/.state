@@ -2,6 +2,7 @@
 <aop-reference-model>
 <aop-project name="WebSpring03_jdbcTemplate"/>
 <aop-project name="WebSpring05_mybatis"/>
+<aop-project name="WebSpringOracleMybatisNoXml"/>
 <aop-project name="WebSpring04_fileupload"/>
 <aop-project name="WebSpringOracleMybatisXml"/>
 <aop-project name="WebSpring02"/>
